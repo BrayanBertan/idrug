@@ -1,0 +1,153 @@
+.principal {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+button {
+    width: 370px;
+    margin: 180px;
+    font-size: 40px;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+}
+
+span {
+    font-weight: bold;
+}
+
+.margemDireita {
+    text-align: right;
+}
+
+.margem {
+    margin: 20px
+}
+
+body {
+    margin: 0;
+}
+
+nav {
+    background-color: brown;
+    height: 80px;
+    width: 40%;
+    float: left;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+.cervejas {
+    width: 30%;
+    height: 80px;
+    float: left;
+    background-image: url('cerv.png');
+}
+
+nav ul {
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    font-size: 30px;
+    margin: 25px;
+}
+
+nav ul li a {
+    color: white;
+}
+
+.sectionLista,
+.articleLista,
+.asideLista {
+    float: left;
+}
+
+.sectionLista {
+    border-left: 1px dotted #E0F026;
+    border-right: 1px dotted brown;
+    border-bottom: 1px dotted #E0F026;
+    border-top: 1px dotted brown;
+    width: 47%;
+    height: 250px;
+    margin: 1%;
+    padding: 5px;
+}
+
+.articleLista {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.asideLista {
+    width: 50%;
+    height: 50%;
+    border-left: 5px solid brown;
+    background-color: #E0F026;
+    border-radius: 15px;
+    margin-top: 8%;
+    padding: 15px;
+}
+
+.listaCervejas {
+    height: 220px;
+    margin-left: 25px;
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+    background-image: url('footer.jpg');
+    bottom: 0;
+    text-align: center;
+    color: white;
+    clear: left;
+}
+
+.home {
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+
+.inicio {
+    background-image: url(cervejahome.png);
+    width: 100%;
+    height: 700px;
+}
+
+.botoes {
+    padding: 25px 50px;
+    border: 3px solid black;
+    background-color: mintcream;
+    color: black;
+    margin: 300px;
+    font-weight: bold;
+}
+
+.redesSociais {
+    margin: 20px;
+    height: 50px;
+    width: 50px;
+}
+
+.redes {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
