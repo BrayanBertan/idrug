@@ -1,5 +1,5 @@
 <div class="header">
-            <img  src="../assets/drugstore.png" alt="">
+            <img  src="../../assets/imagens/geral/logo.png" alt="">
             <div class="div-usuario">
                 <button type="button"><img  src="../assets/user.png" alt="">Minha Conta</button>
                 <button type="button"><img  src="../assets/carts.png" alt="">Meu Carrinho</button>
