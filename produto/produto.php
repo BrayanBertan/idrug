@@ -39,17 +39,17 @@
                         <button class="quantidade">1</button>
                         <button class="quantidade">+</button> <br> <br>
                         <div class="modo-pagamento-aceito">
-                        <p>Modos de pagamento aceitos</p>
-                        <img src="../assets/barcode.png" >
-                        <img src="../assets/mastercard.png" >
-                        <img src="../assets/visa.png" >
-                        <img src="../assets/money.png" >
+                            <p>Modos de pagamento aceitos</p>
+                            <img src="../assets/barcode.png" >
+                            <img src="../assets/mastercard.png" >
+                            <img src="../assets/visa.png" >
+                            <img src="../assets/money.png" >
                         </div>
                 </div>
             </div>
-            <div class="avaliacoes">
             <h2><b>Avaliações</b></h2><br><br>
             <br>
+            <div class="avaliacoes">
                 <?php
                 for ($i=0; $i < 25; $i++) { 
             

@@ -22,7 +22,7 @@
                 <div class="info">
                     <h4><b>Carga Gillette Mach 3 c/ 4 Unidades</b></h4>
                     <p>R$39,10</p>
-                    <a href="../produto/produto.php"><button>Comprar</button></a>
+                    <a href="../produto/produto.php"><button>Ver</button></a>
                 </div>
             </div>
             <?php
