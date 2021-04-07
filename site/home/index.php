@@ -1,3 +1,7 @@
+<?php
+	include('../../conexao.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -18,7 +22,7 @@
            
             ?>
             <div class="produto">
-                <img src="../assets/drugstore.png">
+                <img src="../../assets/imagens/geral/logo.png">
                 <div class="info">
                     <h4><b>Carga Gillette Mach 3 c/ 4 Unidades</b></h4>
                     <p>R$39,10</p>

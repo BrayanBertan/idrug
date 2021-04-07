@@ -1,3 +1,15 @@
+        <?php
+            include('../../conexao.php');
+            $sql = "SELECT foto FROM modos_pagamento";
+            $query = mysqli_query($conexao, $sql);
+            while($modo = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+                $modos_pagamento[] = $modo;
+            }
+            //echo '<pre>',print_r($modos_pagamento),'</pre>';
+        ?>
+        
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -15,9 +27,9 @@
         <div class="conteudo">
             <div class="principal">
                 <div class="produto-foto">
-                    <img src="../assets/drugstore.png" >
+                    <img src="../../assets/imagens/geral/logo.png" >
                 </div>
-                <div class="infos">
+                <div class="infos">.
                     <h1><b>Carga Gillette Mach 3 c/ 4 Unidades</b></h1>
                     <br>
                     <p>R$39,10</p>
@@ -40,10 +52,14 @@
                         <button class="quantidade">+</button> <br> <br>
                         <div class="modo-pagamento-aceito">
                             <p>Modos de pagamento aceitos</p>
-                            <img src="../assets/barcode.png" >
-                            <img src="../assets/mastercard.png" >
-                            <img src="../assets/visa.png" >
-                            <img src="../assets/money.png" >
+                            <?php 
+
+                            foreach($modos_pagamento as $item){
+                            ?>
+                            <img src="<?php echo $item['foto']?>" >
+                            <?php 
+                            }
+                            ?>
                         </div>
                 </div>
             </div>
@@ -56,7 +72,7 @@
                 ?>
                 <div class="avaliacao">
                     <div class="dados"> 
-                        <img src="../assets/user.png" >
+                        <img src="../../assets/imagens/geral/user.png" >
                         <h3>Nome</h3>
                         <h2>8.5</h2>
                     </div>

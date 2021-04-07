@@ -1,0 +1,37 @@
+body{
+    background-color: #7ABD7E;
+}
+
+.conteudo{
+    margin: auto;
+    margin-top: 15%;
+    width: 60%;
+    height: 500px;
+}
+
+
+
+
+.conteudo .modulos {
+    float: left;
+    width: 20%;
+    height: 200px;
+    margin: 50px;
+}
+
+.conteudo .modulos button{
+    width: 75px;
+    height: 40px;
+    background-color: white;
+    border: none;
+}
+
+
+.conteudo .modulos img{
+    width:100%;
+ }
+
+.conteudo .modulos .info{
+   text-align: center;
+}
+

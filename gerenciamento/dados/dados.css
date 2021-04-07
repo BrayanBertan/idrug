@@ -1,0 +1,71 @@
+
+body{
+    background-color: #7ABD7E;
+}
+
+.conteudo{
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 60%;
+    height: 90%;
+    padding: 50px;
+}
+
+.conteudo form{
+    margin: auto;
+    width: 600px;
+    height: 100%;
+}
+
+.conteudo form h1,h2{
+    text-align: center;
+}
+
+.conteudo form img{
+    margin-left: 25%;
+    margin-bottom: 15px;
+    width: 50%;
+    height: 250px;
+}
+
+.conteudo form .campos{
+    margin-bottom: 15px;
+}
+
+.conteudo form label{
+    display: inline-block;
+    width: 20%;
+    margin-right: 5px;
+}
+
+.conteudo form input,textarea{
+    width: 75%;
+}
+
+.conteudo form input{
+    height: 35px;
+}
+
+
+.conteudo form button{
+    margin-left: 40%;
+    width: 30%;
+    height: 50px;
+}
+
+.modo_pagamento {
+    float: left;
+    width: 300px;
+    margin-bottom: 5px;
+}
+
+
+.modo_pagamento label{
+    width: 93%;
+    float: left;
+}
+
+.modo_pagamento input{
+    width: 5%;
+}

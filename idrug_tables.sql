@@ -1,5 +1,6 @@
 
 CREATE TABLE farmacia(
+	usuario        VARCHAR(150) NOT NULL, 
 	nome        VARCHAR(150) NOT NULL, 
 	senha       VARCHAR(150) NOT NULL,
 	sobre   VARCHAR(255) NOT NULL,
@@ -59,6 +60,7 @@ CREATE TABLE modos_pagamento(
 	id      INT NOT NULL    AUTO_INCREMENT,
 	tipo    VARCHAR(100) NOT NULL,
     status  BOOLEAN NOT NULL, 
+	foto VARCHAR(150) NOT NULL,
     PRIMARY KEY (id)
 );
 
