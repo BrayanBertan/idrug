@@ -33,6 +33,14 @@
                     <a href="../produto/produto.php"><button>Ver</button></a>
                 </div>
             </div>
+            <div class="modulos">
+                <img src="../../assets/imagens/geral/logs.png">
+                <div class="info">
+                    <h4><b>Log</b></h4>
+                    <p>Log do sistema de gerenciamento</p>
+                    <a href="../produto/produto.php"><button>Ver</button></a>
+                </div>
+            </div>
         </div>
 
 </html>

@@ -1,8 +1,6 @@
 
 CREATE TABLE farmacia(
-	usuario        VARCHAR(150) NOT NULL, 
 	nome        VARCHAR(150) NOT NULL, 
-	senha       VARCHAR(150) NOT NULL,
 	sobre   VARCHAR(255) NOT NULL,
 	endereco    VARCHAR(255) NOT NULL,
 	telefone    CHAR(10),
@@ -10,9 +8,16 @@ CREATE TABLE farmacia(
     email       VARCHAR(150) NOT NULL,
 	logo       	VARCHAR(150) NOT NULL,
 	cnpj        CHAR(14) NOT NULL
-	
 );
 
+CREATE TABLE usuario_gerenciamento(
+	id          INT NOT NULL    AUTO_INCREMENT,
+	nome        VARCHAR(150) NOT NULL,
+	senha       VARCHAR(150) NOT NULL,
+	acesso      CHAR(1) NOT NULL
+	PRIMARY KEY (id)
+
+);
 CREATE TABLE usuario(
 	id          INT NOT NULL    AUTO_INCREMENT,
 	nome        VARCHAR(150) NOT NULL,
@@ -85,6 +90,18 @@ CREATE TABLE item(
     PRIMARY KEY (id),
     FOREIGN KEY (pedido) REFERENCES pedido(id),
     FOREIGN KEY (produto) REFERENCES produto(id)
+);
+
+
+CREATE TABLE log(
+	id          		INT NOT NULL    AUTO_INCREMENT,
+    updatedAt 	DATETIME,
+	updatedBy   INT NOT NULL,
+	tabela  	VARCHAR(30) NOT NULL,
+	tipo		VARCHAR(8) NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY (updatedBy) REFERENCES usuario_gerenciamento(id)
+
 );
 
 
