@@ -22,21 +22,19 @@
             </div>
             <div class="div-filtros">
                 <form action="../home/index.php" method="post">
-                    <input type="text" name="pesquisa" placeholder="     Pesquisa">
+                    <input type="text" name="pesquisa" placeholder="     Pesquisa" value="<?php echo  $pesquisa?>">
                     <select name="categoria" id="categoria">
-                    <option value="0">Todas</option>
+                    <option value="0" <?php if($categoria == 0) echo'seleced'?>>Todas</option>
                     <?php
-                        foreach ($categorias as $item) { 
-                    
-                    
+                        foreach ($categorias as $item) {
                         ?>
-                        <option value="<?php echo $item['id']?>"><?php echo $item['nome']?></option>
+                        <option value="<?php echo $item['id']?>"   <?php if($categoria == $item['id']) echo'seleced'?>><?php echo $item['nome']?></option>
                         <?php
                         }
                         ?>
                     </select>
-                    <input class="faixa-preco" type="number" name="min" placeholder=" preço minimo">
-                    <input class="faixa-preco" type="number" name="max" placeholder=" preço máximo">
+                    <input class="faixa-preco" type="number" name="min" placeholder=" preço minimo" value="<?php echo  $min?>">
+                    <input class="faixa-preco" type="number" name="max" placeholder=" preço máximo" value="<?php echo  $max?>">
                     <button type="submit"><img  src="../../assets/imagens/geral/search.png" alt=""></button>
                 </form>
             </div>

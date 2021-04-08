@@ -2,6 +2,10 @@
 	include('../../conexao.php');
 
     $filtro = 'WHERE';
+    $pesquisa = '';
+    $min = 0;
+    $max = 99999;
+    $categoria = 0;
     if(isset($_POST['pesquisa'])){
         $pesquisa = trim($_POST['pesquisa']);
         if($pesquisa !== '')
