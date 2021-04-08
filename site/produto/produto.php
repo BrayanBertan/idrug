@@ -29,6 +29,18 @@
          while($modo = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
              $modos_pagamento[] = $modo;
          }
+
+         
+         $sql = "SELECT a.*,b.foto,b.nome FROM avaliacao AS a 
+                INNER JOIN usuario AS b ON b.id = a.usuario
+                WHERE produto = $id";
+  
+         $avaliacoes = [];
+         $query = mysqli_query($conexao, $sql);
+         while($avaliacao = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+             $avaliacoes[] = $avaliacao;
+         }
+         $quantidade_avaliacoes = mysqli_num_rows($query);
          //echo '<pre>',print_r($modos_pagamento),'</pre>';
         ?>
         <div class="conteudo">
@@ -64,25 +76,24 @@
             <br>
             <div class="avaliacoes">
                 <?php
-                for ($i=0; $i < 25; $i++) { 
+                foreach ($avaliacoes as $item) { 
             
                 ?>
                 <div class="avaliacao">
                     <div class="dados"> 
-                        <img src="../../assets/imagens/geral/user.png" >
-                        <h3>Nome</h3>
-                        <h2>8.5</h2>
+                        <img src="<?php echo $item['foto']?>" >
+                        <h3><?php echo $item['nome']?></h3>
+                        <h2><?php echo $item['nota']?></h2>
                     </div>
-                   <div class="descricao">
-                   <p>loreoskdkddddddddddddd 
-                        ddddddddddddddddddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>ddddddddddddddddddddddddddddddddd
-                        dddddddddddddddddddddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaddddddd<br>dddddddddddddddddddddddllll
-                        llllllllllllllllllllllllaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaall<br>lllllllllllaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                    </p>
+                   <div class="comentario">
+                   <p><?php echo $item['comentario']?></p>
                    </div>
                 </div>
                 <?php
                     }
+
+                    if($quantidade_avaliacoes == 0)
+                        echo "Nenhuma avaliação disponivel para esse produto";
                 ?>
             </div>
         </div>
