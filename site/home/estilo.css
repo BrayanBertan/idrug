@@ -39,7 +39,13 @@
        text-align: center;
     }
     
+    .conteudo .div-lista-vazia img{
+        margin-left: 25%;
+    }
 
+    .conteudo .div-lista-vazia h1{
+        margin-left: 10%;
+    }
 
 
 footer {

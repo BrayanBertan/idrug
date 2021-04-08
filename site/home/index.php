@@ -1,5 +1,16 @@
 <?php
 	include('../../conexao.php');
+
+  
+    
+    $sql = "SELECT id,nome,preco,foto FROM produto";
+    $query = mysqli_query($conexao, $sql);
+    $produtos = [];
+    while($produto= mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+        $produtos[] = $produto;
+    }
+    $quantidade_produtos = mysqli_num_rows($query);
+    
 ?>
 
 <!DOCTYPE html>
@@ -18,19 +29,24 @@
         ?>
         <div class="conteudo">
             <?php
-            for ($i=0; $i < 25; $i++) { 
+            foreach ($produtos as $item) { 
            
             ?>
             <div class="produto">
-                <img src="../../assets/imagens/geral/logo.png">
+                <img src="<?php echo $item['foto']?>">
                 <div class="info">
-                    <h4><b>Carga Gillette Mach 3 c/ 4 Unidades</b></h4>
-                    <p>R$39,10</p>
-                    <a href="../produto/produto.php"><button>Ver</button></a>
+                    <h4><b><?php echo $item['nome']?></b></h4>
+                    <p>R$<?php echo $item['preco']?></p>
+                    <a href="../produto/produto.php?<?php echo $item['id']?>"><button>Ver</button></a>
                 </div>
             </div>
             <?php
             }
+            if($quantidade_produtos == 0)
+                echo '<div class="div-lista-vazia">';
+                    echo '<img src="../../assets/imagens/geral/lista-vazia.png">';
+                    echo '<h1>Oops! nenhum resultado encontrado mude os filtros para achar novos produtos</h1>';
+                echo '</div>';
             ?>
         </div>
         <footer>
