@@ -17,7 +17,7 @@
 	<body>
         <div class="conteudo">
             <form action="alterar_dados_db.php" method="post">
-            <h1>Meus Dados</h1>
+            <h1>Dados da Farmacia</h1>
             <form action="mailto:brayanbertan@gmail.com" method="post">
                  <?php
                     $sql = "SELECT * FROM farmacia";
@@ -25,14 +25,6 @@
                     $farmacia = mysqli_fetch_array($query, MYSQLI_ASSOC);
                 ?>
                 <img src="<?php echo $farmacia['logo']; ?>" alt="">
-                <div class="campos">
-                    <label for="usuario">usuario</label>
-                    <input type="text" name="usuario" id="usuario" maxlength="150" value="<?php echo $farmacia['usuario']; ?>">
-                </div>
-                <div class="campos">
-                    <label for="senha">senha</label>
-                    <input type="password" name="senha" id="senha" maxlength="150" value="<?php echo $farmacia['senha']; ?>">
-                </div>
                 <div class="campos">
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" maxlength="150" value="<?php echo $farmacia['nome']; ?>">
@@ -67,14 +59,20 @@
                 <?php 
 
                     foreach($modos_pagamento as $item){
-                    ?>
-                        <div class="modo_pagamento">
-                            <input type="checkbox" id="<?php echo $item['id']?>" name="<?php echo $item['id']?>" >
-                            <label for="<?php echo $item['id']?>"><?php echo $item['tipo']?></label>
-                        </div>
-                    <?php 
+                        if($item['status']){
+                            echo  '<div class="modo_pagamento">';
+                            echo  '<input type="checkbox" id="'.$item['id'].'" name="'.$item['id'].'"  checked>';
+                            echo  ' <label for="'.$item['id'].'">'.$item['tipo'].'</label>';
+                            echo  '</div>';
+                        }
+                        else{
+                            echo  '<div class="modo_pagamento">';
+                            echo  '<input type="checkbox" id="'.$item['id'].'" name="'.$item['id'].'">';
+                            echo  ' <label for="'.$item['id'].'">'.$item['tipo'].'</label>';
+                            echo  '</div>';
+                        }
                     }
-                ?>
+                   ?>
                 <button type="submit">Alterar</button>  
             </form>
         </div>

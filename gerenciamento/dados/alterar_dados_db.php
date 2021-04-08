@@ -7,11 +7,10 @@
 	</head>
 	<body>
     <?php
-            $usuario     = $_POST['usuario'];
+         
             $nome        = $_POST['nome'];
             $endereco    = $_POST['endereco'];
             $email       = $_POST['email'];
-            $senha       = $_POST['senha'];
             $sobre       = $_POST['sobre'];
             $telefone    = $_POST['telefone'];
             $celular     = $_POST['celular'];
@@ -22,9 +21,8 @@
 			for($i=1; $i <= 6; $i++) { 
 				$status = 0;
 				if(isset($_POST[$i]))
-					{$status = 1;}
-				echo $status;
-				$sql = "UPDATE modos_pagamento SET status = '{$status}' WHERE id = '{$i}'";
+					$status = 1;
+				$sql = "UPDATE modos_pagamento SET status = '{$status}' WHERE id = '$i'";
 
 				$query = mysqli_query($conexao, $sql);
 			}
@@ -33,7 +31,7 @@
 			 
 
 			$sql = "UPDATE farmacia SET nome = '{$nome}', endereco = '{$endereco}', telefone = '{$telefone}', celular = '{$celular}', cnpj = '{$cnpj}'
-            , email = '{$email}', sobre = '{$sobre}', usuario = '{$usuario}', senha = '{$senha}' ";
+            , email = '{$email}', sobre = '{$sobre}' ";
 			
 			$query = mysqli_query($conexao, $sql);
 			if($query) {
