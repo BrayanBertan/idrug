@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
+		<link rel="stylesheet" href="dados.css">
 	</head>
 	<body>
     <?php
@@ -34,12 +35,23 @@
             , email = '{$email}', sobre = '{$sobre}' ";
 			
 			$query = mysqli_query($conexao, $sql);
+			$retorno;
+			$imagem;
 			if($query) {
-				echo 'Farmacia alterada com sucesso!';
+				$retorno = 'Farmacia alterada com sucesso!';
+				$imagem = '../../assets/imagens/geral/thumb-up.png';
 			} else {
-				echo 'Farmacia não alterada! MySQL erro: ' .mysqli_error($conexao);
+				$retorno = 'Farmacia não alterada! MySQL erro: ' .mysqli_error($conexao);
+				$imagem = '../../assets/imagens/geral/thumb-down.png';
 			}
 		?>
+
+		<div class="resposta">
+			<img src="<?php echo $imagem; ?>" alt="">
+			<h1><?php echo $retorno ?></h1>
+			<a href="alterar_dados.php"><button>edição</button></a>
+			<a href="../home/"><button>home</button></a>
+		</div>
 	</body>
 </html>
 <?php
