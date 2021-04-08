@@ -25,9 +25,9 @@
         else  
             $filtro .= ' categoria = '.$categoria;
 
-        //echo 'SELECT id,nome,preco,foto FROM produto '.$filtro;
+        //echo "SELECT id,nome,preco,foto FROM produto $filtro";
     }
-    $sql = "SELECT id,nome,preco,foto FROM produto";
+    $sql = "SELECT id,nome,preco,foto FROM produto $filtro";
     $query = mysqli_query($conexao, $sql);
     $produtos = [];
     while($produto= mysqli_fetch_array($query, MYSQLI_ASSOC)) {
@@ -61,16 +61,17 @@
                 <div class="info">
                     <h4><b><?php echo $item['nome']?></b></h4>
                     <p>R$<?php echo $item['preco']?></p>
-                    <a href="../produto/produto.php?<?php echo $item['id']?>"><button>Ver</button></a>
+                    <a href="../produto/produto.php?id=<?php echo $item['id']?>"><button>Ver</button></a>
                 </div>
             </div>
             <?php
             }
-            if($quantidade_produtos == 0)
+            if($quantidade_produtos == 0){
                 echo '<div class="div-lista-vazia">';
                     echo '<img src="../../assets/imagens/geral/lista-vazia.png">';
                     echo '<h1>Oops! nenhum resultado encontrado mude os filtros para achar novos produtos</h1>';
                 echo '</div>';
+            }
             ?>
         </div>
         <footer>

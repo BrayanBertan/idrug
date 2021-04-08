@@ -1,5 +1,12 @@
         <?php
             include('../../conexao.php');
+
+            $id = $_GET['id'];
+            $sql = "SELECT * FROM produto WHERE id = $id";
+                    $query = mysqli_query($conexao, $sql);
+                    $produto = mysqli_fetch_array($query, MYSQLI_ASSOC);
+
+
             $sql = "SELECT foto FROM modos_pagamento";
             $query = mysqli_query($conexao, $sql);
             while($modo = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
@@ -27,24 +34,14 @@
         <div class="conteudo">
             <div class="principal">
                 <div class="produto-foto">
-                    <img src="../../assets/imagens/geral/logo.png" >
+                    <img src="<?php echo $produto['foto']?>">
                 </div>
                 <div class="infos">.
-                    <h1><b>Carga Gillette Mach 3 c/ 4 Unidades</b></h1>
+                    <h1><b><?php echo $produto['nome']?></b></h1>
                     <br>
-                    <p>R$39,10</p>
+                    <p>R$<?php echo $produto['preco']?></p>
                     <br>
-                    <p>
-                        Genacol Colágeno Hidrolisado em Cápsulas - Produto natural canadense que possui em sua formulação uma matriz exclusiva de aminoácidos provenientes do colágeno hidrolisado 100% puro, fornecendo ao organismo os elementos necessários para a produção do colágeno, essenciais para a amnutenção da saúde e qualidade de vida - Genacol é natural, sem contraindicações, livre de açúcar, corantes, conservantes ou qualquer agente artificial.
-
-                        O que é Genacol:
-
-                        Genacol é um suplemento bioativo, 100% natural, seguro, livre de conservantes e que fornece os elementos necessários para a manutenção e produção de colágeno.
-
-                        Genacol é um suplemento alimentar natural que promove o suprimento do colágeno no organismo. Diversos estudos clínicos já foram realizados e publicados, demonstrando que Genacol® é seguro e pode ajudar a promover muitos benefícios à saúde e qualidade de vida.
-
-                        Sugestão de Uso: Ingerir 3 cápsulas de Genacol antes de dormir, ou à critério profissional.
-                    </p>
+                    <p><?php echo $produto['descricao']?></p>
                     <br> <br>
                         <a href="../produto/produto.php"><button>Comprar</button></a>
                         <button class="quantidade">-</button>

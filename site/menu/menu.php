@@ -1,10 +1,13 @@
         <?php
             include('../../conexao.php');
+
+          
+
             $sql = "SELECT * FROM farmacia";
             $query = mysqli_query($conexao, $sql);
             $farmacia = mysqli_fetch_array($query, MYSQLI_ASSOC);
 
-    
+        
 
             $sql = "SELECT * FROM categoria";
             $query = mysqli_query($conexao, $sql);
