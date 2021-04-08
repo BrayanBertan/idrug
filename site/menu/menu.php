@@ -3,6 +3,15 @@
             $sql = "SELECT * FROM farmacia";
             $query = mysqli_query($conexao, $sql);
             $farmacia = mysqli_fetch_array($query, MYSQLI_ASSOC);
+
+    
+
+            $sql = "SELECT * FROM categoria";
+            $query = mysqli_query($conexao, $sql);
+            $categorias = [];
+            while($categoria= mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+                $categorias[] = $categoria;
+            }
         ?>
         
         <div class="header">
@@ -12,15 +21,16 @@
                 <button type="button"><img  src="../../assets/imagens/geral/carts.png" alt="">Meu Carrinho</button>
             </div>
             <div class="div-filtros">
-                <form action="/action_page.php">
+                <form action="../home/index.php" method="post">
                     <input type="text" name="pesquisa" placeholder="     Pesquisa">
-                    <select name="" id="">
+                    <select name="categoria" id="categoria">
+                    <option value="0">Todas</option>
                     <?php
-                        for ($i=0; $i < 12; $i++) { 
+                        foreach ($categorias as $item) { 
                     
                     
                         ?>
-                        <option value="">Categoria</option>
+                        <option value="<?php echo $item['id']?>"><?php echo $item['nome']?></option>
                         <?php
                         }
                         ?>

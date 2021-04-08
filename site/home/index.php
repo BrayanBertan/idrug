@@ -1,8 +1,28 @@
 <?php
 	include('../../conexao.php');
 
-  
-    
+    $filtro = 'WHERE';
+    if(isset($_POST['pesquisa'])){
+        $pesquisa = trim($_POST['pesquisa']);
+        if($pesquisa !== '')
+            $filtro .= " nome like '%$pesquisa%' AND";
+            
+        $min = trim($_POST['min']);
+        $min = ($min !== '')?$min:0;
+
+        $max = trim($_POST['max']);
+        $max = ($max !== '')?$max:99999;
+
+        $filtro .= ' preco BETWEEN '.$min.' AND '.$max.' AND';
+
+        $categoria = trim($_POST['categoria']);
+        if($categoria == 0)
+            $filtro .= ' categoria > 0';
+        else  
+            $filtro .= ' categoria = '.$categoria;
+
+        //echo 'SELECT id,nome,preco,foto FROM produto '.$filtro;
+    }
     $sql = "SELECT id,nome,preco,foto FROM produto";
     $query = mysqli_query($conexao, $sql);
     $produtos = [];
@@ -52,6 +72,6 @@
         <footer>
             IDRUG
         </footer>
-        </body>
+    </body>
 
 </html>
