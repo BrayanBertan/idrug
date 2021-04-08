@@ -1,39 +1,5 @@
 <?php
 	include('../../conexao.php');
-
-    $filtro = 'WHERE';
-    $pesquisa = '';
-    $min = 0;
-    $max = 99999;
-    $categoria = 0;
-    if(isset($_POST['pesquisa'])){
-        $pesquisa = trim($_POST['pesquisa']);
-        if($pesquisa !== '')
-            $filtro .= " nome like '%$pesquisa%' AND";
-            
-        $min = trim($_POST['min']);
-        $min = ($min !== '')?$min:0;
-
-        $max = trim($_POST['max']);
-        $max = ($max !== '')?$max:99999;
-
-        $filtro .= ' preco BETWEEN '.$min.' AND '.$max.' AND';
-
-        $categoria = trim($_POST['categoria']);
-        if($categoria == 0)
-            $filtro .= ' categoria > 0';
-        else  
-            $filtro .= ' categoria = '.$categoria;
-
-        //echo "SELECT id,nome,preco,foto FROM produto $filtro";
-    }
-    $sql = "SELECT id,nome,preco,foto FROM produto $filtro";
-    $query = mysqli_query($conexao, $sql);
-    $produtos = [];
-    while($produto= mysqli_fetch_array($query, MYSQLI_ASSOC)) {
-        $produtos[] = $produto;
-    }
-    $quantidade_produtos = mysqli_num_rows($query);
     
 ?>
 
@@ -50,6 +16,13 @@
     <body>
         <?php
          include('../menu/menu.php');
+         $sql = "SELECT id,nome,preco,foto FROM produto $filtro";
+         $query = mysqli_query($conexao, $sql);
+         $produtos = [];
+         while($produto= mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+             $produtos[] = $produto;
+         }
+         $quantidade_produtos = mysqli_num_rows($query);
         ?>
         <div class="conteudo">
             <?php

@@ -1,18 +1,5 @@
         <?php
             include('../../conexao.php');
-
-            $id = $_GET['id'];
-            $sql = "SELECT * FROM produto WHERE id = $id";
-                    $query = mysqli_query($conexao, $sql);
-                    $produto = mysqli_fetch_array($query, MYSQLI_ASSOC);
-
-
-            $sql = "SELECT foto FROM modos_pagamento";
-            $query = mysqli_query($conexao, $sql);
-            while($modo = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
-                $modos_pagamento[] = $modo;
-            }
-            //echo '<pre>',print_r($modos_pagamento),'</pre>';
         ?>
         
 
@@ -30,6 +17,19 @@
     <body>
         <?php
          include('../menu/menu.php');
+
+         $id = $_GET['id'];
+         $sql = "SELECT * FROM produto WHERE id = $id";
+                 $query = mysqli_query($conexao, $sql);
+                 $produto = mysqli_fetch_array($query, MYSQLI_ASSOC);
+
+
+         $sql = "SELECT foto FROM modos_pagamento";
+         $query = mysqli_query($conexao, $sql);
+         while($modo = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+             $modos_pagamento[] = $modo;
+         }
+         //echo '<pre>',print_r($modos_pagamento),'</pre>';
         ?>
         <div class="conteudo">
             <div class="principal">
