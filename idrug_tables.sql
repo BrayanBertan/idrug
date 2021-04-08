@@ -46,6 +46,7 @@ CREATE TABLE produto(
 	volume      INT NOT NULL,
 	unidade     VARCHAR(50) NOT NULL,
 	estoque     INT NOT NULL,
+	foto    	VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (categoria) REFERENCES categoria(id)
 );

@@ -22,7 +22,7 @@
                 <div class="info">
                     <h4><b>Produtos</b></h4>
                     <p>Produtos da Farmacia</p>
-                    <a href="../produto/produto.php"><button>Ver</button></a>
+                    <a href="../produtos/listar_produtos.php"><button>Ver</button></a>
                 </div>
             </div>
             <div class="modulos">

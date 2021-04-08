@@ -1,0 +1,71 @@
+.conteudo{
+    margin: auto;
+    margin-top: 5%;
+    width: 80%;
+    height: 100%;
+}
+
+
+.conteudo .novo-produto{
+    background-color:  #7ABD7E;
+    margin: auto;
+    margin-bottom: 50px;
+    padding: 0;
+    width: 500px;
+    height: 50px;
+}
+
+.conteudo .novo-produto button{
+    float: right;
+    background-color: white;
+    right: 0;
+    width: 85px;
+    height: 50px;
+}
+
+.conteudo .novo-produto h3{
+    float: left;
+    margin: 15px;
+    margin-left: 15%;
+    width: 300px;
+    height: 50px;
+}
+
+
+.conteudo .lista-produtos{
+    margin: auto;
+    width: 800px;
+    height: 500px;
+}
+
+
+.conteudo .lista-produtos table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 100px;
+}
+.conteudo .lista-produtos table th, td {
+	border: 1px solid #7ABD7E;
+    text-align: center;
+}
+
+
+
+.conteudo .lista-produtos table  :nth-child(3){
+    text-align: left;
+}
+
+
+.conteudo .lista-produtos table td img{
+	width: 50px;
+    height: 50px;
+}
+
+.conteudo .lista-produtos table td a img{
+	width: 25px;
+    height: 25px;
+}
+
+
+
+
