@@ -21,7 +21,7 @@
            $receita = 0;
            if(isset($_POST['receita'])) $receita = 1;
            
-           $mensagem_sucesso = '';
+           $mensagem = '';
            if(isset($_POST['id'])){
                 $mensagem = 'alterado';
                 $sql = "UPDATE produto SET 
@@ -63,6 +63,17 @@
 				$retorno = 'Produto não '.$mensagem.' ! MySQL erro: ' .mysqli_error($conexao);
 				$imagem = '../../assets/imagens/geral/thumb-down.png';
 			}
+
+
+               if($mensagem === 'alterado'){
+                    $updatedAt = date('Y-m-d H:i:s');
+                    $sql = "INSERT INTO log VALUES(null,'$updatedAt',1,'produto','update')";
+                    $query = mysqli_query($conexao, $sql);
+               }else{
+                    $updatedAt = date('Y-m-d H:i:s');
+                    $sql = "INSERT INTO log VALUES(null,'$updatedAt',1,'produto','insert')";
+                    $query = mysqli_query($conexao, $sql);
+               }
 		?>
 
 		<div class="resposta">

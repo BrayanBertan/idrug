@@ -44,6 +44,11 @@
 				$retorno = 'Farmacia não alterada! MySQL erro: ' .mysqli_error($conexao);
 				$imagem = '../../assets/imagens/geral/thumb-down.png';
 			}
+
+
+			$updatedAt = date('Y-m-d H:i:s');
+			$sql = "INSERT INTO log VALUES(null,'$updatedAt',1,'farmacia e modos_pagamento','update')";
+			$query = mysqli_query($conexao, $sql);
 		?>
 
 		<div class="resposta">

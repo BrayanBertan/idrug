@@ -6,6 +6,10 @@
     if(isset($_POST['id'])){
         $sql = "UPDATE usuario_gerenciamento SET acesso = {$_POST['acesso']} WHERE id = {$_POST['id']}";
         $query = mysqli_query($conexao, $sql);
+
+        $updatedAt = date('Y-m-d H:i:s');
+        $sql = "INSERT INTO log VALUES(null,'$updatedAt',1,'usuario_gerenciamento','update')";
+        $query = mysqli_query($conexao, $sql);
     }
 
     $sql = "SELECT a.id,a.nome,a.foto,b.id AS acesso_id,b.nome AS acesso 

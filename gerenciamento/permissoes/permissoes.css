@@ -29,6 +29,10 @@ body{
    height: 50px;
 }
 
+.conteudo .usuarios p{
+    width: 150px;
+ }
+
 .conteudo .usuarios button{
     width: 25px;
     height: 25px;

@@ -1,0 +1,20 @@
+.conteudo .lista-logs{
+    margin: auto;
+    width: 1000px;
+    height: 1000px;
+}
+
+
+.conteudo .lista-logs table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 100px;
+}
+
+.conteudo .lista-logs h3{
+    text-align: center;
+}
+.conteudo .lista-logs table th, td {
+	border: 1px solid #7ABD7E;
+    text-align: center;
+}
