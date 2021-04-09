@@ -1,3 +1,10 @@
+<?php
+    include('../../conexao.php');
+    $sql = "SELECT * FROM usuario_gerenciamento WHERE id = '{$_GET['id']}'";
+   
+    $query = mysqli_query($conexao, $sql);
+    $usuario = mysqli_fetch_array($query, MYSQLI_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -8,6 +15,10 @@
         <title>Home</title>
     </head>
     <body>
+
+        <?php
+            if($usuario['acesso'] == 2 || $usuario['acesso'] == 5){ 
+        ?>
         <div class="conteudo">
             <div class="modulos">
                 <img src="../../assets/imagens/geral/meus-dados.png">
@@ -17,6 +28,12 @@
                     <a href="../dados/alterar_dados.php"><button>Ver</button></a>
                 </div>
             </div>
+            <?php
+                }
+            ?>
+            <?php
+                if($usuario['acesso'] == 3 || $usuario['acesso'] == 5){ 
+            ?>
             <div class="modulos">
                 <img src="../../assets/imagens/geral/produtos.png">
                 <div class="info">
@@ -25,6 +42,12 @@
                     <a href="../produtos/listar_produtos.php"><button>Ver</button></a>
                 </div>
             </div>
+            <?php
+                }
+            ?>
+            <?php
+             if($usuario['acesso'] >= 4){ 
+            ?>
             <div class="modulos">
                 <img src="../../assets/imagens/geral/pedidos.png">
                 <div class="info">
@@ -33,6 +56,12 @@
                     <a href="../produto/produto.php"><button>Ver</button></a>
                 </div>
             </div>
+            <?php
+                }
+            ?>
+            <?php
+             if($usuario['acesso'] == 5){ 
+            ?>
             <div class="modulos">
                 <img src="../../assets/imagens/geral/logs.png">
                 <div class="info">
@@ -49,6 +78,13 @@
                     <a href="../permissoes/listar_permissoes.php"><button>Ver</button></a>
                 </div>
             </div>
+            <?php
+                }
+            ?>
         </div>
 
 </html>
+
+<?php
+	mysqli_close($conexao);
+?>

@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="login_cadastro.css">
 	</head>
 	<body>
-        <div class="cadastro">
+        <div class="conteudo">
             <form action="cadastro_db.php" method="post">
                 <h1>Cadastro</h1>
                 <img src="../../assets/imagens/geral/user.png" alt="">

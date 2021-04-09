@@ -1,46 +1,48 @@
-.cadastro{
+
+.conteudo{
+    background-color: #7ABD7E;
     margin: auto;
     margin-top: 5%;
     margin-bottom: 5%;
-    width: 60%;
+    width: 30%;
     height: 90%;
     padding: 50px;
 }
 
-.cadastro form{
+.conteudo form{
     margin: auto;
     width: 600px;
     height: 100%;
 }
 
-.cadastro form h1,h2{
+.conteudo form h1,h2{
     text-align: center;
 }
 
-.cadastro form img{
+.conteudo form img{
     margin-left: 25%;
     margin-bottom: 15px;
     width: 50%;
     height: 250px;
 }
 
-.cadastro form .campos{
+.conteudo form .campos{
     margin-bottom: 15px;
 }
 
-.cadastro form label{
+.conteudo form label{
     display: inline-block;
     width: 20%;
     margin-right: 5px;
 }
 
-.cadastro form input{
+.conteudo form input{
     width: 75%;
     height: 35px;
 }
 
 
-.cadastro form button{
+.conteudo form button{
     margin-left: 40%;
     width: 30%;
     height: 50px;
