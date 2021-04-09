@@ -19,7 +19,12 @@
          include('../menu/menu.php');
 
          $id = $_GET['id'];
-         $sql = "SELECT * FROM produto WHERE id = $id";
+         $sql = "SELECT a.*,b.nome AS nome_categoria,c.nome AS nome_unidade FROM produto AS a
+                 INNER JOIN categoria AS b ON b.id = a.categoria
+                 INNER JOIN unidade AS c ON c.id = a.unidade
+                 WHERE a.id = $id";
+
+               
                  $query = mysqli_query($conexao, $sql);
                  $produto = mysqli_fetch_array($query, MYSQLI_ASSOC);
 
@@ -54,6 +59,8 @@
                     <p>R$<?php echo $produto['preco']?></p>
                     <br>
                     <p><?php echo $produto['descricao']?></p>
+                    <br>
+                    <p><?php echo "{$produto['nome_categoria']} {$produto['volume']} {$produto['nome_unidade']}"?></p>
                     <br> <br>
                         <a href="../produto/produto.php"><button>Comprar</button></a>
                         <button class="quantidade">-</button>
