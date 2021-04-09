@@ -13,7 +13,9 @@ CREATE TABLE farmacia(
 CREATE TABLE usuario_gerenciamento(
 	id          INT NOT NULL    AUTO_INCREMENT,
 	nome        VARCHAR(150) NOT NULL,
+	usuario VARCHAR(150) NOT NULL,
 	senha       VARCHAR(150) NOT NULL,
+	foto VARCHAR(150) NOT NULl,
 	acesso      CHAR(1) NOT NULL,
 	PRIMARY KEY (id)
 
