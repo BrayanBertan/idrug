@@ -13,7 +13,7 @@
            $nome = $_POST['nome'];
            $usuario = $_POST['usuario'];
            $senha = $_POST['senha'];
-           $acesso = 0;
+           $acesso = 1;
            $foto = $_POST['foto'];
            
            $sql = "INSERT INTO usuario_gerenciamento

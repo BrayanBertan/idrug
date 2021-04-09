@@ -41,6 +41,14 @@
                     <a href="../produto/produto.php"><button>Ver</button></a>
                 </div>
             </div>
+            <div class="modulos">
+                <img src="../../assets/imagens/geral/permissao.png">
+                <div class="info">
+                    <h4><b>Permissões</b></h4>
+                    <p>Gerenciar o acesso dos colaboradores</p>
+                    <a href="../permissoes/listar_permissoes.php"><button>Ver</button></a>
+                </div>
+            </div>
         </div>
 
 </html>

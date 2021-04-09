@@ -1,0 +1,49 @@
+body{
+    background-color:  #7ABD7E;
+}
+.conteudo{
+    margin: auto;
+    margin-top: 5%;
+    width: 80%;
+    height: 100%;
+}
+
+.conteudo h1,h3{
+    text-align: center;
+}
+
+.conteudo .usuarios{
+    margin: auto;
+    width: 500px;
+    height: 50px;
+    padding: 5px;
+}
+
+.conteudo .usuarios *{
+    float: left;
+    margin-right: 5px;
+}
+
+.conteudo .usuarios img{
+   width: 50px;
+   height: 50px;
+}
+
+.conteudo .usuarios button{
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    margin-top: 12px;
+    border: none;
+ }
+
+.conteudo .usuarios button img{
+    width: 25px;
+    height: 25px;
+ }
+
+.conteudo .usuarios select{
+    width: 250px;
+    height: 35px;
+    margin-top: 8px;
+ }
