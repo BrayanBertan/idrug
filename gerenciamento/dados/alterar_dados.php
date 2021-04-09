@@ -18,7 +18,6 @@
         <div class="conteudo">
             <form action="alterar_dados_db.php" method="post">
             <h1>Dados da Farmacia</h1>
-            <form action="mailto:brayanbertan@gmail.com" method="post">
                  <?php
                     $sql = "SELECT * FROM farmacia";
                     $query = mysqli_query($conexao, $sql);

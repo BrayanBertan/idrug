@@ -57,11 +57,11 @@
                 <form action="../home/index.php" method="post">
                     <input type="text" name="pesquisa" placeholder="     Pesquisa" value="<?php echo  $pesquisa?>">
                     <select name="categoria" id="categoria">
-                    <option value="0" <?php if($categoria == 0) echo'seleced'?>>Todas</option>
+                    <option value="0" <?php if($categoria == 0) echo'selected'?>>Todas</option>
                     <?php
                         foreach ($categorias as $item) {
                         ?>
-                        <option value="<?php echo $item['id']?>"   <?php if($categoria == $item['id']) echo'seleced'?>><?php echo $item['nome']?></option>
+                        <option value="<?php echo $item['id']?>"   <?php if($categoria == $item['id']) echo'selected'?>><?php echo $item['nome']?></option>
                         <?php
                         }
                         ?>

@@ -32,7 +32,7 @@
         <div class="conteudo">
             <div class="novo-produto">
                 <h3>Adicionar novo produto</h3>
-                <a href="../home/"><button>+</button></a>
+                <a href="salvar_produto.php"><button>+</button></a>
             </div>
             <div class="lista-produtos">
                 <h3>Produtos</h3>
@@ -67,7 +67,7 @@
                                 <td style="width: 60%"><?php echo $item['nome']?></td>
                                 <td style="width: 10%"><?php echo $item['estoque']?></td>
                                 <td style="width: 10%">
-                                    <a href=""><img src="../../assets/imagens/geral/editar.png" alt=""></a>
+                                    <a href="salvar_produto.php?id=<?php echo $item['id']?>"><img src="../../assets/imagens/geral/editar.png" alt=""></a>
                                     <a href="listar_produtos.php?id=<?php echo $item['id']?>"><img src="../../assets/imagens/geral/deletar.png" alt=""></a>
                                 </td>
                             </tr>

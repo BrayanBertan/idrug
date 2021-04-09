@@ -14,7 +14,7 @@ CREATE TABLE usuario_gerenciamento(
 	id          INT NOT NULL    AUTO_INCREMENT,
 	nome        VARCHAR(150) NOT NULL,
 	senha       VARCHAR(150) NOT NULL,
-	acesso      CHAR(1) NOT NULL
+	acesso      CHAR(1) NOT NULL,
 	PRIMARY KEY (id)
 
 );
@@ -36,6 +36,12 @@ CREATE TABLE categoria(
     PRIMARY KEY (id)
 );
 
+CREATE TABLE unidade(
+	id       INT NOT NULL    AUTO_INCREMENT,
+	nome     VARCHAR(150) NOT NULL,	    
+    PRIMARY KEY (id)
+);
+
 CREATE TABLE produto(
 	id          INT NOT NULL    AUTO_INCREMENT,
 	nome        VARCHAR(150) NOT NULL,
@@ -44,11 +50,12 @@ CREATE TABLE produto(
 	preco       DECIMAL(5,2)  NOT NULL,
 	receita     BOOLEAN NOT NULL,
 	volume      INT NOT NULL,
-	unidade     VARCHAR(50) NOT NULL,
+	unidade     INT NOT NULL,
 	estoque     INT NOT NULL,
 	foto    	VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (categoria) REFERENCES categoria(id)
+    FOREIGN KEY (categoria) REFERENCES categoria(id),
+	FOREIGN KEY (unidade) REFERENCES unidade(id)
 );
 
 CREATE TABLE avaliacao(

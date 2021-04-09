@@ -69,3 +69,93 @@
 
 
 
+.conteudo form{
+    margin: auto;
+    width: 600px;
+    height: 100%;
+}
+
+.conteudo form h1,h2{
+    text-align: center;
+}
+
+.conteudo form img{
+    margin-left: 25%;
+    margin-bottom: 15px;
+    width: 50%;
+    height: 250px;
+}
+
+.conteudo form .campos{
+    margin-bottom: 15px;
+}
+
+.conteudo form label{
+    display: inline-block;
+    width: 12%;
+    margin-right: 5px;
+}
+
+.conteudo form input[type="text"],textarea{
+    width: 75%;
+}
+
+
+.conteudo form select{
+    width: 25%;
+}
+
+.conteudo form input[type="number"]{
+    width: 15%;
+}
+
+.conteudo form input,select{
+    height: 35px;
+}
+
+
+.conteudo form button{
+    margin-left: 40%;
+    width: 30%;
+    height: 50px;
+}
+
+
+
+.conteudo form input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+}
+
+
+
+.resposta{
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 30%;
+    height: 600px;
+    padding: 50px;
+}
+
+
+.resposta img{
+    margin-bottom: 15px;
+    width: 75%;
+    height: 75%;
+}
+
+
+.resposta h3{
+    text-align: center;
+}
+
+.resposta button{
+    margin: 5%;
+    width: 30%;
+    height: 50px;
+}
+
+
+
+
