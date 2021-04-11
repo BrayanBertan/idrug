@@ -14,7 +14,7 @@
 
     $sql = "SELECT a.id,a.nome,a.foto,b.id AS acesso_id,b.nome AS acesso 
             FROM usuario_gerenciamento AS a
-            INNER JOIN acesso AS b ON b.id = a.acesso";
+            INNER JOIN acesso AS b ON b.id = a.acesso ORDER BY a.acesso";
     $query = mysqli_query($conexao, $sql);
     $usuarios = [];
     while($usuario= mysqli_fetch_array($query, MYSQLI_ASSOC)) {
