@@ -64,7 +64,7 @@
                     <br> <br>
                         <a href="../produto/produto.php"><button>Comprar</button></a>
                         <button class="quantidade">-</button>
-                        <button class="quantidade">1</button>
+                        <div class="quantidade"><p>1</p></div>
                         <button class="quantidade">+</button> <br> <br>
                         <div class="modo-pagamento-aceito">
                             <p>Modos de pagamento aceitos</p>

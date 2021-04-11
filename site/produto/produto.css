@@ -50,11 +50,16 @@
 
 
 .conteudo .principal .infos .quantidade{
+    float: left;
     width: 30px;
     height: 40px;
     background-color: #7ABD7E;
-    margin-right: 0;
+    margin-right: 5px;
     border: none;
+}
+
+.conteudo .principal .infos .quantidade p{
+    margin: 12px;
 }
 
 .conteudo .principal .infos .quantidade :last-child{
