@@ -62,7 +62,7 @@
                     <br>
                     <p><?php echo "{$produto['nome_categoria']} {$produto['volume']} {$produto['nome_unidade']}"?></p>
                     <br> <br>
-                        <a href="../produto/produto.php"><button>Comprar</button></a>
+                        <a href="../carrinho/carrinho.php"><button>Comprar</button></a>
                         <button class="quantidade">-</button>
                         <div class="quantidade"><p>1</p></div>
                         <button class="quantidade">+</button> <br> <br>
@@ -87,3 +87,7 @@
         </body>
 
 </html>
+
+<?php
+	mysqli_close($conexao);
+?>

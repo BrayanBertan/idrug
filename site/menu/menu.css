@@ -21,7 +21,7 @@
     float: right;
   }
 
-  .header .div-usuario button {
+  .header .div-usuario a {
     float: right;
     padding: 6px;
     margin-top: 30px;

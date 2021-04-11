@@ -1,0 +1,84 @@
+body{
+    background-color:  #7ABD7E;
+}
+.carrinho{
+    margin: auto;
+    margin-top: 5%;
+    width: 70%;
+    height: 500px;
+    border: 1px solid black;
+    overflow-x: auto;
+}
+
+h1{
+    text-align: center;
+}
+
+.carrinho .itens{
+    margin: auto;
+    width: 1000px;
+    height: 50px;
+    padding: 5px;
+}
+
+.carrinho .itens *{
+    float: left;
+    margin-right: 5px;
+}
+
+.carrinho .itens img{
+   width: 50px;
+   height: 50px;
+}
+
+.carrinho .itens p{
+    width: 500px;
+ }
+
+ .carrinho .itens  #preco{
+    width: 150px;
+ }
+
+.carrinho .itens a{
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    margin-top: 12px;
+    border: none;
+ }
+
+.carrinho .itens a img{
+    width: 25px;
+    height: 25px;
+ }
+
+
+ .carrinho .quantidade{
+    float: left;
+    width: 30px;
+    height: 40px;
+    background-color: #7ABD7E;
+    margin-right: 5px;
+    border: none;
+}
+
+.carrinho .quantidade p{
+    margin: 12px;
+}
+
+
+
+#infos {
+    margin: auto;
+    margin-top: 5%;
+    width: 50%;
+    height: 50px;
+    padding: 25px;
+}
+#infos *{
+    float: left;
+    margin-right: 5%;
+    width: 200px;
+    height: 50px;
+}
+

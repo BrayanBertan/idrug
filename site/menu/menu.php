@@ -50,8 +50,8 @@
         <div class="header">
             <img src="<?php echo $farmacia['logo']; ?>" alt="">
             <div class="div-usuario">
-                <button type="button"><img  src="../../assets/imagens/geral/user.png" alt="">Minha Conta</button>
-                <button type="button"><img  src="../../assets/imagens/geral/carts.png" alt="">Meu Carrinho</button>
+                <a href="../carrinho/carrinho.php"><img src="../../assets/imagens/geral/user.png" alt="">Minha Conta</a> 
+               <a href="../carrinho/carrinho.php"><img  src="../../assets/imagens/geral/carts.png" alt="">Meu Carrinho</a> 
             </div>
             <div class="div-filtros">
                 <form action="../home/index.php" method="post">
@@ -73,3 +73,4 @@
             </div>
             
         </div>
+        

@@ -67,7 +67,7 @@
                                         }
                                         ?>
                                     </select>
-                                    <button type="submit"><img src="../../assets/imagens/geral/salvar.png" alt=""></a>
+                                    <button type="submit"><img src="../../assets/imagens/geral/salvar.png" alt=""></button>
                                     </form>
                                 </div>
                           
