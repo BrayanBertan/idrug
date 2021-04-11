@@ -1,6 +1,7 @@
 <?php
             include('../../conexao.php');
             $produto = [  
+                'id' => 0,
                 'nome'  => '',   
                 'descricao' => '',  
                 'categoria' => '',   
@@ -48,6 +49,7 @@
                 <h1><?php echo  $titulo?></h1>
                 <img src="<?php echo $produto['foto']; ?>" alt="">
                 <input type="hidden" name="foto" value="<?php echo $produto['foto']; ?>">
+                <input type="hidden" name="id" value="<?php echo $produto['id']; ?>">
                 <div class="campos">
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" maxlength="150" value="<?php echo $produto['nome']; ?>">

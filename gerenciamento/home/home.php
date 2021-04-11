@@ -81,6 +81,14 @@
             <?php
                 }
             ?>
+            <div class="modulos">
+            <img src="../../assets/imagens/geral/user.png">
+            <div class="info">
+                <h4><b>Minha conta</b></h4>
+                <p>Editar os meus dados</p>
+                <a href="../login_cadastro/cadastro.php?id=<?php echo $usuario['id']?>"><button>Ver</button></a>
+            </div>
+        </div>
         </div>
 
 </html>

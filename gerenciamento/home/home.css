@@ -5,7 +5,7 @@ body{
 .conteudo{
     margin: auto;
     margin-top: 15%;
-    width: 90%;
+    width: 96%;
     height: 500px;
 }
 
@@ -14,7 +14,7 @@ body{
 
 .conteudo .modulos {
     float: left;
-    width: 12%;
+    width: 10%;
     height: 200px;
     margin: 50px;
 }

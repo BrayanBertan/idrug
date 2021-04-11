@@ -22,7 +22,7 @@
            if(isset($_POST['receita'])) $receita = 1;
            
            $mensagem = '';
-           if(isset($_POST['id'])){
+           if($_POST['id'] !=0){
                 $mensagem = 'alterado';
                 $sql = "UPDATE produto SET 
                 nome = '{$nome}',

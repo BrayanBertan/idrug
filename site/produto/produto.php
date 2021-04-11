@@ -25,8 +25,8 @@
                  WHERE a.id = $id";
 
                
-                 $query = mysqli_query($conexao, $sql);
-                 $produto = mysqli_fetch_array($query, MYSQLI_ASSOC);
+        $query = mysqli_query($conexao, $sql);
+        $produto = mysqli_fetch_array($query, MYSQLI_ASSOC);
 
 
          $sql = "SELECT foto FROM modos_pagamento";

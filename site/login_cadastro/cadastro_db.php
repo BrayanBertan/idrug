@@ -25,7 +25,10 @@
     
 	if($quantidade > 0)
 		header('Location: cadastro.php?msg= email em uso');
-	  	
+		if($quantidade > 0){
+			header('Location: cadastro.php?msg= email em uso&id='.$_POST['id']);
+			return;
+		}
 
            $sql = "INSERT INTO usuario
                 VALUES (

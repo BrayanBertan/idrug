@@ -1,3 +1,24 @@
+<?php
+    include('../../conexao.php');
+
+    $usuario = [  
+        'id' => 0,
+        'nome'  => '',   
+        'usuario' => '',  
+        'senha' => '', 
+        'foto'  => '../../assets/imagens/geral/user.png'
+    ];
+
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+        $sql = 'SELECT * FROM usuario_gerenciamento WHERE id ='.$id;
+        $query = mysqli_query($conexao, $sql);
+        $usuario = mysqli_fetch_array($query, MYSQLI_ASSOC);
+    }
+
+?>
+        
+
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -8,15 +29,16 @@
         <div class="conteudo">
             <form action="cadastro_db.php" method="post">
                 <h1>Cadastro</h1>
-                <img src="../../assets/imagens/geral/user.png" alt="">
-                <input type="hidden" name="foto" value="../../assets/imagens/geral/user.png">
+                <img src="<?php echo $usuario['foto']?>" alt="">
+                <input type="hidden" name="foto" value="<?php echo $usuario['foto']?>">
+                <input type="hidden" name="id" value="<?php echo $usuario['id']; ?>">
                 <div class="campos">
                     <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" maxlength="150">
+                    <input type="text" name="nome" id="nome" maxlength="150" value="<?php echo $usuario['nome']?>">
                 </div>
                 <div class="campos">
                     <label for="usuario">Usuario</label>
-                    <input type="text" name="usuario" id="usuario" maxlength="150">
+                    <input type="text" name="usuario" id="usuario" maxlength="150" <?php echo $usuario['usuario']?>>
                 </div>
                 <?php
                     $msg = '';
@@ -28,7 +50,7 @@
                 ?>
                 <div class="campos">
                     <label for="senha">Senha</label>
-                    <input type="password" name="senha" id="senha" >
+                    <input type="password" name="senha" id="senha" <?php echo $usuario['senha']?>>
                 </div>
                 <button type="submit">Cadastrar</button>  
             </form>
@@ -36,3 +58,7 @@
 		
 	</body>
 </html>
+
+<?php
+	mysqli_close($conexao);
+?>
