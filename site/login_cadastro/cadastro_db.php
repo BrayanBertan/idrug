@@ -4,39 +4,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-		<link rel="stylesheet" href="login_cadastro.css">
+		<link rel="stylesheet" href="../../gerenciamento/login_cadastro/login_cadastro.css">
 	</head>
 	<body>
     <?php
          
          
-           $nome = $_POST['nome'];
-           $usuario = $_POST['usuario'];
-           $senha = $_POST['senha'];
-           $acesso = 1;
-           $foto = $_POST['foto'];
+	  $nome = $_POST['nome'];
+	  $email = $_POST['email'];
+	  $senha = $_POST['senha'];
+	  $foto = $_POST['foto'];
+	  $telefone = $_POST['telefone'];
+	  $celular = $_POST['celular'];
+	  $cpf = $_POST['cpf'];
+	  $endereco = $_POST['endereco'];
 
-		$sql = "SELECT usuario FROM usuario_gerenciamento WHERE usuario = '{$usuario}'";
-		$query = mysqli_query($conexao, $sql);
-		$quantidade = mysqli_num_rows($query);
+	  $sql = "SELECT email FROM usuario WHERE email = '{$email}'";
+	  $query = mysqli_query($conexao, $sql);
+	  $quantidade = mysqli_num_rows($query);
     
-		if($quantidade > 0)
-			header('Location: cadastro.php?msg= usuario em uso');
-	
-           
-           $sql = "INSERT INTO usuario_gerenciamento
+	if($quantidade > 0)
+		header('Location: cadastro.php?msg= email em uso');
+	  	
+
+           $sql = "INSERT INTO usuario
                 VALUES (
                  null,
                 '{$nome}',
-                '{$usuario}',
                 '{$senha}',
+                '{$telefone}',
+                '{$celular}',
+                '{$cpf}',
                 '{$foto}',
-                '{$acesso}'
+                '{$endereco}',
+                '{$email}'
                 )";
 
 
            $query = mysqli_query($conexao, $sql);
-			$retorno;
+			$retorno = '';
 			$imagem;
 			if($query) {
 				$retorno = 'Usuario cadastrado com sucesso!';

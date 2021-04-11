@@ -32,9 +32,10 @@ CREATE TABLE usuario_gerenciamento(
 CREATE TABLE usuario(
 	id          INT NOT NULL    AUTO_INCREMENT,
 	nome        VARCHAR(150) NOT NULL,
+	email VARCHAR(150) NOT NULL
 	senha       VARCHAR(150) NOT NULL,
 	telefone    CHAR(10),
-	celular     CHAR(10),
+	celular     CHAR(11),
 	cpf         CHAR(11) NOT NULL,
 	foto       	VARCHAR(150) NOT NULL,
 	endereco    VARCHAR(255) NOT NULL,

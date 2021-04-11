@@ -2,7 +2,7 @@
 <html lang="pt-br">
 	<head>
 		<title>Cadastro</title>
-        <link rel="stylesheet" href="login_cadastro.css">
+        <link rel="stylesheet" href="../../gerenciamento/login_cadastro/login_cadastro.css">
 	</head>
 	<body>
         <div class="conteudo">
@@ -15,8 +15,8 @@
                     <input type="text" name="nome" id="nome" maxlength="150">
                 </div>
                 <div class="campos">
-                    <label for="usuario">Usuario</label>
-                    <input type="text" name="usuario" id="usuario" maxlength="150">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" maxlength="150">
                 </div>
                 <?php
                     $msg = '';
@@ -29,6 +29,22 @@
                 <div class="campos">
                     <label for="senha">Senha</label>
                     <input type="password" name="senha" id="senha" >
+                </div>
+                <div class="campos">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" name="telefone" id="telefone" maxlength="150">
+                </div>
+                <div class="campos">
+                    <label for="celular">Celular</label>
+                    <input type="text" name="celular" id="celular" maxlength="150">
+                </div>
+                <div class="campos">
+                    <label for="cpf">Cpf</label>
+                    <input type="text" name="cpf" id="cpf" maxlength="150">
+                </div>
+                <div class="campos">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" name="endereco" id="endereco" maxlength="150">
                 </div>
                 <button type="submit">Cadastrar</button>  
             </form>
