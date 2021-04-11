@@ -35,3 +35,11 @@ body{
    text-align: center;
 }
 
+.conteudo .modulos .info h4{
+    height: 40px;
+ }
+
+ .conteudo .modulos .info p{
+    height: 80px;
+ }
+
