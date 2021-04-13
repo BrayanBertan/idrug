@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 12-Abr-2021 às 15:52
+-- Generation Time: 13-Abr-2021 às 17:24
 -- Versão do servidor: 5.7.17
 -- PHP Version: 5.6.30
 
@@ -149,7 +149,12 @@ INSERT INTO `log` (`id`, `updatedAt`, `updatedBy`, `tabela`, `tipo`) VALUES
 (3, '2021-04-11 23:48:06', 1, 'produto', 'insert'),
 (4, '2021-04-11 23:48:25', 1, 'produto', 'insert'),
 (5, '2021-04-11 23:51:39', 1, 'produto', 'update'),
-(6, '2021-04-12 00:47:53', 1, 'usuario_gerenciamento', 'update');
+(6, '2021-04-12 00:47:53', 1, 'usuario_gerenciamento', 'update'),
+(7, '2021-04-13 15:18:50', 1, 'usuario_gerenciamento', 'update'),
+(8, '2021-04-13 15:19:07', 1, 'usuario_gerenciamento', 'update'),
+(9, '2021-04-13 15:24:55', 1, 'usuario_gerenciamento', 'update'),
+(10, '2021-04-13 15:25:08', 1, 'usuario_gerenciamento', 'update'),
+(11, '2021-04-13 15:26:47', 1, 'usuario_gerenciamento', 'update');
 
 -- --------------------------------------------------------
 
@@ -262,14 +267,6 @@ CREATE TABLE `usuario` (
   `email` varchar(150) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Extraindo dados da tabela `usuario`
---
-
-INSERT INTO `usuario` (`id`, `nome`, `senha`, `telefone`, `celular`, `cpf`, `foto`, `endereco`, `email`) VALUES
-(1, 'kyo', '123456', '99999999', '88888888888', '08989208920', '../../assets/imagens/geral/user.png', 'rua tal', 'teste@gmail.com'),
-(3, 'tes', '123456', '', '', '', '../../assets/imagens/geral/user.png', '', 'teste@gmail.com');
-
 -- --------------------------------------------------------
 
 --
@@ -290,10 +287,9 @@ CREATE TABLE `usuario_gerenciamento` (
 --
 
 INSERT INTO `usuario_gerenciamento` (`id`, `nome`, `usuario`, `senha`, `foto`, `acesso`) VALUES
-(1, 'Teste teste', 'teste3', '123456', '../../assets/imagens/geral/user.png', 2),
 (2, 'admin1256', 'teste', '123456', '../../assets/imagens/geral/user.png', 5),
 (5, 'a', 'gggggggggggggggggggggggg', '123456', '../../assets/imagens/geral/user.png', 3),
-(4, 'hgghgh', 'testegdfhfgfgfg', '123456', '../../assets/imagens/geral/user.png', 1),
+(4, 'hgghgh', 'testegdfhfgfgfg', '123456', '../../assets/imagens/geral/user.png', 3),
 (6, 'b', 'teste2', '123456', '../../assets/imagens/geral/user.png', 1),
 (7, 'd', 'teste1', '123456', '../../assets/imagens/geral/user.png', 1);
 
@@ -405,7 +401,7 @@ ALTER TABLE `item`
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `modos_pagamento`
 --
