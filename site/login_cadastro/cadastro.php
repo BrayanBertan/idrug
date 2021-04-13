@@ -1,3 +1,23 @@
+<?php
+    include('../../conexao.php');
+
+    $usuario = [  
+        'id' => 0,
+        'nome'  => '',   
+        'usuario' => '',  
+        'senha' => '', 
+        'foto'  => '../../assets/imagens/geral/user.png'
+    ];
+
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+        $sql = 'SELECT * FROM usuario WHERE id ='.$id;
+        $query = mysqli_query($conexao, $sql);
+        $usuario = mysqli_fetch_array($query, MYSQLI_ASSOC);
+    }
+?>
+      
+
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -10,13 +30,14 @@
                 <h1>Cadastro</h1>
                 <img src="../../assets/imagens/geral/user.png" alt="minha foto">
                 <input type="hidden" name="foto" value="../../assets/imagens/geral/user.png">
+                <input type="hidden" name="id" value="<?php echo $usuario['id']; ?>">
                 <div class="campos">
                     <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" maxlength="150">
+                    <input type="text" name="nome" id="nome" maxlength="150"    value="<?php echo $usuario['nome']?>">
                 </div>
                 <div class="campos">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" maxlength="150">
+                    <input type="email" name="email" id="email" maxlength="150" value="<?php echo $usuario['email']?>">
                 </div>
                 <?php
                     $msg = '';
@@ -28,23 +49,23 @@
                 ?>
                 <div class="campos">
                     <label for="senha">Senha</label>
-                    <input type="password" name="senha" id="senha" >
+                    <input type="password" name="senha" id="senha"  value="<?php echo $usuario['senha']?>" >
                 </div>
                 <div class="campos">
                     <label for="telefone">Telefone</label>
-                    <input type="text" name="telefone" id="telefone" maxlength="150">
+                    <input type="text" name="telefone" id="telefone" maxlength="150"    value="<?php echo $usuario['telefone']?>">
                 </div>
                 <div class="campos">
                     <label for="celular">Celular</label>
-                    <input type="text" name="celular" id="celular" maxlength="150">
+                    <input type="text" name="celular" id="celular" maxlength="150"  value="<?php echo $usuario['celular']?>">
                 </div>
                 <div class="campos">
                     <label for="cpf">Cpf</label>
-                    <input type="text" name="cpf" id="cpf" maxlength="150">
+                    <input type="text" name="cpf" id="cpf" maxlength="150"  value="<?php echo $usuario['cpf']?>">
                 </div>
                 <div class="campos">
                     <label for="endereco">Endereço</label>
-                    <input type="text" name="endereco" id="endereco" maxlength="150">
+                    <input type="text" name="endereco" id="endereco" maxlength="150"    value="<?php echo $usuario['endereco']?>">
                 </div>
                 <button type="submit">Cadastrar</button>  
             </form>
@@ -52,3 +73,7 @@
 		
 	</body>
 </html>
+
+<?php
+	mysqli_close($conexao);
+?>

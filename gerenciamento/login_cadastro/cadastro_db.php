@@ -10,11 +10,11 @@
     <?php
          
          
-           $nome = $_POST['nome'];
-           $usuario = $_POST['usuario'];
-           $senha = $_POST['senha'];
-           $acesso = 1;
-           $foto = $_POST['foto'];
+		$nome = $_POST['nome'];
+		$usuario = $_POST['usuario'];
+		$senha = $_POST['senha'];
+		$acesso = 1;
+		$foto = $_POST['foto'];
 
 		$sql = "SELECT usuario FROM usuario_gerenciamento WHERE usuario = '{$usuario}' AND id != {$_POST['id']}";
 
@@ -55,28 +55,29 @@
 			$retorno;
 			$imagem;
 			if($query) {
-				$retorno = 'Produto '.$mensagem.' com sucesso!';
+				$retorno = 'Dados '.$mensagem.' com sucesso!';
 				$imagem = '../../assets/imagens/geral/thumb-up.png';
 			} else {
-				$retorno = 'Produto não '.$mensagem.' ! MySQL erro: ' .mysqli_error($conexao);
+				$retorno = 'Dados não '.$mensagem.' ! MySQL erro: ' .mysqli_error($conexao);
 				$imagem = '../../assets/imagens/geral/thumb-down.png';
 			}
 		?>
-
 		<div class="resposta">
-			<img src="<?php echo $imagem; ?>"  alt="resposta">
+			<img src="<?php echo $imagem; ?>" alt="resposta">
 			<h1><?php echo $retorno ?></h1>
-			<a href="login.php"><button>Login</button></a>
-			<a href="cadastro.php"><button>Cadastro</button></a>
 			<?php 
 				if($mensagem == 'alterado'){
 			?>
+					<a href="cadastro.php?id=<?php echo  $_POST['id']?>"><button>Meus Dados</button></a>
 					<a href="../home/home.php?id=<?php echo  $_POST['id']?>"><button>Home</button></a>
+			<?php
+				}else{ 
+			?>
+			<a href="login.php"><button>Login</button></a>
+			<a href="cadastro_php"><button>Cadastro</button></a>
 			<?php
 				}
 			?>
-			
-			
 		</div>
 	</body>
 </html>

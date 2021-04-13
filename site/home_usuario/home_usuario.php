@@ -38,7 +38,7 @@
                 <div class="info">
                     <h4><b>Minha conta</b></h4>
                     <p>Editar os meus dados</p>
-                    <a href=""><button>Ver</button></a>
+                    <a href="../login_cadastro/cadastro.php?id=<?php echo $usuario['id']?>"><button>Ver</button></a>
                 </div>
             </div>
         </div>
