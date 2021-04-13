@@ -15,7 +15,6 @@
         $query = mysqli_query($conexao, $sql);
         $usuario = mysqli_fetch_array($query, MYSQLI_ASSOC);
     }
-
 ?>
         
 
@@ -52,8 +51,13 @@
                     <label for="senha">Senha</label>
                     <input type="password" name="senha" id="senha" <?php echo $usuario['senha']?>>
                 </div>
-                <button type="submit">Cadastrar</button>  
+                <a href="delete_usuario.php?id=<?php echo $usuario['id']; ?>"><button type="button">Excluir</button></a>
+                <button type="submit">Cadastrar</button>
             </form>
+            <?php
+                  if(isset($_GET['msgErro']))
+                    echo "<p style='color:red;text-align:center;'>{$_GET['msgErro']}</p>"
+            ?>
         </div>
 		
 	</body>
