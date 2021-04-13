@@ -18,6 +18,14 @@
                 </div>
                 <button type="submit">Entrar</button>  
             </form>
+            <?php
+                    $msgErro = '';
+                    if(isset($_GET['msgErro'])){
+                        $msgErro = $_GET['msgErro'];
+                        echo "<p style='color:red;text-align:center;'> $msgErro </p>";
+                    }
+                    
+            ?>
         </div>
 		
 	</body>
