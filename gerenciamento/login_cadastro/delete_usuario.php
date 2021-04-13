@@ -11,7 +11,7 @@
                     $id = $_GET['id'];
                 ?>
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
-                <img src="../../assets/imagens/geral/deletar.png" alt="">
+                <img src="../../assets/imagens/geral/deletar.png"  alt="excluir conta">
                 <p>Deseja excluir a sua conta?</p>
                 
                 <button type="submit">Sim</button>

@@ -28,7 +28,7 @@
         <div class="conteudo">
             <form action="cadastro_db.php" method="post">
                 <h1>Cadastro</h1>
-                <img src="<?php echo $usuario['foto']?>" alt="">
+                <img src="<?php echo $usuario['foto']?>"  alt="minha fotooo">
                 <input type="hidden" name="foto" value="<?php echo $usuario['foto']?>">
                 <input type="hidden" name="id" value="<?php echo $usuario['id']; ?>">
                 <div class="campos">

@@ -18,7 +18,7 @@
                 ?>
                 <div class="avaliacao">
                     <div class="dados"> 
-                        <img src="<?php echo $item['foto']?>" >
+                        <img src="<?php echo $item['foto']?>"  alt="usuario">
                         <h3><?php echo $item['nome']?></h3>
                         <h2><?php echo $item['nota']?></h2>
                     </div>

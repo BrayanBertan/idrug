@@ -48,10 +48,10 @@
         ?>
         
         <div class="header">
-            <img src="<?php echo $farmacia['logo']; ?>" alt="">
+            <img src="<?php echo $farmacia['logo']; ?>" alt="logo farmacia">
             <div class="div-usuario">
-                <a href="../carrinho/carrinho.php"><img src="../../assets/imagens/geral/user.png" alt="">Minha Conta</a> 
-               <a href="../carrinho/carrinho.php"><img  src="../../assets/imagens/geral/carts.png" alt="">Meu Carrinho</a> 
+                <a href="../carrinho/carrinho.php"><img src="../../assets/imagens/geral/user.png" alt="minha conta">Minha Conta</a> 
+               <a href="../carrinho/carrinho.php"><img  src="../../assets/imagens/geral/carts.png" alt="meu carrinho">Meu Carrinho</a> 
             </div>
             <div class="div-filtros">
                 <form action="../home/index.php" method="post">
@@ -68,7 +68,7 @@
                     </select>
                     <input class="faixa-preco" type="number" name="min" placeholder=" preço minimo" value="<?php echo  $min?>">
                     <input class="faixa-preco" type="number" name="max" placeholder=" preço máximo" value="<?php echo  $max?>">
-                    <button type="submit"><img  src="../../assets/imagens/geral/search.png" alt=""></button>
+                    <button type="submit"><img  src="../../assets/imagens/geral/search.png" alt="procurar"></button>
                 </form>
             </div>
             

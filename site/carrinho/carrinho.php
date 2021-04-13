@@ -22,13 +22,13 @@
                         ?>
                          
                                 <div class="itens">
-                                <img src="../../assets/imagens/geral/carts.png" alt="">
+                                <img src="../../assets/imagens/geral/carts.png" alt="meu carrinho">
                                 <p><?php echo 'xddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'?></p>
                                 <p id="preco"><?php echo 'R$15,00 R$15,00'?></p>
                                 <button class="quantidade">-</button>
                                 <div class="quantidade"><p>1</p></div>
                                 <button class="quantidade">+</button>
-                                <a href=""><img src="../../assets/imagens/geral/deletar.png" alt=""></a>
+                                <a href=""><img src="../../assets/imagens/geral/deletar.png" alt="deletar item"></a>
                                 </div>
                           
                         <?php

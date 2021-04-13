@@ -64,7 +64,7 @@
 		?>
 
 		<div class="resposta">
-			<img src="<?php echo $imagem; ?>" alt="">
+			<img src="<?php echo $imagem; ?>"  alt="resposta">
 			<h1><?php echo $retorno ?></h1>
 			<a href="login.php"><button>Login</button></a>
 			<a href="cadastro.php"><button>Cadastro</button></a>

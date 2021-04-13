@@ -54,7 +54,7 @@
                         ?>
                          
                                 <div class="usuarios">
-                                <img src="<?php echo $item['foto']?>" alt="">
+                                <img src="<?php echo $item['foto']?>"  alt="foto usuario">
                                     <p><?php echo $item['nome']?></p>
                                     <form action="listar_permissoes.php" method="post">
                                         <input type="hidden" name="id" value="<?php echo $item['id']?>">
@@ -67,7 +67,7 @@
                                         }
                                         ?>
                                     </select>
-                                    <button type="submit"><img src="../../assets/imagens/geral/salvar.png" alt=""></button>
+                                    <button type="submit"><img src="../../assets/imagens/geral/salvar.png"  alt="salvar"></button>
                                     </form>
                                 </div>
                           

@@ -16,12 +16,12 @@
     </head>
     <body>
 
-        <?php
-            if($usuario['acesso'] == 2 || $usuario['acesso'] == 5){ 
-        ?>
         <div class="conteudo">
+            <?php
+                if($usuario['acesso'] == 2 || $usuario['acesso'] == 5){ 
+            ?>
             <div class="modulos">
-                <img src="../../assets/imagens/geral/meus-dados.png">
+                <img src="../../assets/imagens/geral/meus-dados.png" alt="meus dados">
                 <div class="info">
                     <h4><b>Geral</b></h4>
                     <p>Dados da Farmacia</p>
@@ -35,7 +35,7 @@
                 if($usuario['acesso'] == 3 || $usuario['acesso'] == 5){ 
             ?>
             <div class="modulos">
-                <img src="../../assets/imagens/geral/produtos.png">
+                <img src="../../assets/imagens/geral/produtos.png" alt="produtos">
                 <div class="info">
                     <h4><b>Produtos</b></h4>
                     <p>Produtos da Farmacia</p>
@@ -49,7 +49,7 @@
              if($usuario['acesso'] >= 4){ 
             ?>
             <div class="modulos">
-                <img src="../../assets/imagens/geral/pedidos.png">
+                <img src="../../assets/imagens/geral/pedidos.png" alt="pedidos">
                 <div class="info">
                     <h4><b>Pedidos</b></h4>
                     <p>Pedidos da Farmacia</p>
@@ -63,7 +63,7 @@
              if($usuario['acesso'] == 5){ 
             ?>
             <div class="modulos">
-                <img src="../../assets/imagens/geral/logs.png">
+                <img src="../../assets/imagens/geral/logs.png"  alt="log">
                 <div class="info">
                     <h4><b>Log</b></h4>
                     <p>Log do sistema de gerenciamento</p>
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="modulos">
-                <img src="../../assets/imagens/geral/permissao.png">
+                <img src="../../assets/imagens/geral/permissao.png"  alt="permissões">
                 <div class="info">
                     <h4><b>Permissões</b></h4>
                     <p>Gerenciar o acesso dos colaboradores</p>
@@ -82,13 +82,13 @@
                 }
             ?>
             <div class="modulos">
-            <img src="../../assets/imagens/geral/user.png">
-            <div class="info">
-                <h4><b>Minha conta</b></h4>
-                <p>Editar os meus dados</p>
-                <a href="../login_cadastro/cadastro.php?id=<?php echo $usuario['id']?>"><button>Ver</button></a>
+                <img src="../../assets/imagens/geral/user.png"  alt="conta">
+                <div class="info">
+                    <h4><b>Minha conta</b></h4>
+                    <p>Editar os meus dados</p>
+                    <a href="../login_cadastro/cadastro.php?id=<?php echo $usuario['id']?>"><button>Ver</button></a>
+                </div>
             </div>
-        </div>
         </div>
 
 </html>

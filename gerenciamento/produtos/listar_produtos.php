@@ -62,12 +62,12 @@
                         ?>
                             <tr>
                                 <td style="width: 10%"><?php echo $item['id']?></td>
-                                <td style="width: 10%"><img src="<?php echo $item['foto']?>" alt=""></td>
+                                <td style="width: 10%"><img src="<?php echo $item['foto']?>"  alt="produto"></td>
                                 <td style="width: 60%"><?php echo $item['nome']?></td>
                                 <td style="width: 10%"><?php echo $item['estoque']?></td>
                                 <td style="width: 10%">
-                                    <a href="salvar_produto.php?id=<?php echo $item['id']?>"><img src="../../assets/imagens/geral/editar.png" alt=""></a>
-                                    <a href="listar_produtos.php?id=<?php echo $item['id']?>"><img src="../../assets/imagens/geral/deletar.png" alt=""></a>
+                                    <a href="salvar_produto.php?id=<?php echo $item['id']?>"><img src="../../assets/imagens/geral/editar.png"  alt="editar"></a>
+                                    <a href="listar_produtos.php?id=<?php echo $item['id']?>"><img src="../../assets/imagens/geral/deletar.png"  alt="salvar"></a>
                                 </td>
                             </tr>
                         <?php

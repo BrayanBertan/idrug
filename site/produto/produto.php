@@ -51,7 +51,7 @@
         <div class="conteudo">
             <div class="principal">
                 <div class="produto-foto">
-                    <img src="<?php echo $produto['foto']?>">
+                    <img src="<?php echo $produto['foto']?>"  alt="produto">
                 </div>
                 <div class="infos">.
                     <h1><b><?php echo $produto['nome']?></b></h1>
@@ -72,7 +72,7 @@
 
                             foreach($modos_pagamento as $item){
                             ?>
-                            <img src="<?php echo $item['foto']?>" >
+                            <img src="<?php echo $item['foto']?>"  alt="modo pagamento">
                             <?php 
                             }
                             ?>

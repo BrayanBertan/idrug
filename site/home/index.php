@@ -30,7 +30,7 @@
            
             ?>
             <div class="produto">
-                <img src="<?php echo $item['foto']?>">
+                <img src="<?php echo $item['foto']?>"  alt="produto">
                 <div class="info">
                     <h4><b><?php echo $item['nome']?></b></h4>
                     <p>R$<?php echo $item['preco']?></p>
@@ -41,7 +41,7 @@
             }
             if($quantidade_produtos == 0){
                 echo '<div class="div-lista-vazia">';
-                    echo '<img src="../../assets/imagens/geral/lista-vazia.png">';
+                    echo '<img src="../../assets/imagens/geral/lista-vazia.png"  alt="lista vazia">';
                     echo '<h1>Oops! nenhum resultado encontrado mude os filtros para achar novos produtos</h1>';
                 echo '</div>';
             }

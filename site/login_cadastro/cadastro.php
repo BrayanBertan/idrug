@@ -8,7 +8,7 @@
         <div class="conteudo">
             <form action="cadastro_db.php" method="post">
                 <h1>Cadastro</h1>
-                <img src="../../assets/imagens/geral/user.png" alt="">
+                <img src="../../assets/imagens/geral/user.png" alt="minha foto">
                 <input type="hidden" name="foto" value="../../assets/imagens/geral/user.png">
                 <div class="campos">
                     <label for="nome">Nome</label>
