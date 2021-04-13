@@ -1,0 +1,68 @@
+
+
+
+body{
+    background-color: #7ABD7E;
+}
+
+
+.conteudo{
+    float: left;
+    margin: auto;
+    margin-top: 15%;
+    width: 60%;
+    height: 500px;
+}
+
+
+.conteudo .modulos {
+    float: left;
+    width: 15%;
+    height: 200px;
+    margin: 50px;
+}
+
+.conteudo .modulos button{
+    width: 75px;
+    height: 40px;
+    background-color: white;
+    border: none;
+}
+
+
+.conteudo .modulos img{
+    width:100%;
+ }
+
+.conteudo .modulos .info{
+   text-align: center;
+}
+
+.conteudo .modulos .info h4{
+    height: 30px;
+ }
+
+ .conteudo .modulos .info p{
+    height: 60px;
+ }
+
+
+
+
+
+#bem-vindo {
+    float: left;
+    width: 34%;
+    height: 800px;
+}
+
+
+#bem-vindo img{
+    width:100%;
+ }
+
+#bem-vindo p{
+    font-size: 100px;
+    text-align: center;
+    margin: 0;
+ }
