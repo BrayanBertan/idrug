@@ -51,7 +51,16 @@
                     <label for="senha">Senha</label>
                     <input type="password" name="senha" id="senha" <?php echo $usuario['senha']?>>
                 </div>
-                <a href="delete_usuario.php?id=<?php echo $usuario['id']; ?>"><button type="button">Excluir</button></a>
+                <?php
+                    if($usuario['id'] != 0) {
+
+                    
+                ?>
+                     <a href="delete_usuario.php?id=<?php echo $usuario['id']; ?>"><button type="button">Excluir</button></a>
+                <?php
+                   }
+                ?>
+               
                 <button type="submit">Cadastrar</button>
             </form>
             <?php

@@ -67,8 +67,21 @@
                     <label for="endereco">Endereço</label>
                     <input type="text" name="endereco" id="endereco" maxlength="150"    value="<?php echo $usuario['endereco']?>">
                 </div>
+                <?php
+                    if($usuario['id'] != 0) {
+
+                    
+                ?>
+                     <a href="delete_usuario.php?id=<?php echo $usuario['id']; ?>"><button type="button">Excluir</button></a>
+                <?php
+                   }
+                ?>
                 <button type="submit">Cadastrar</button>  
             </form>
+            <?php
+                  if(isset($_GET['msgErro']))
+                    echo "<p style='color:red;text-align:center;'>{$_GET['msgErro']}</p>"
+            ?>
         </div>
 		
 	</body>
