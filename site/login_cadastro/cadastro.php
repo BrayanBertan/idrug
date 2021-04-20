@@ -37,7 +37,7 @@
                 </div>
                 <div class="campos">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" maxlength="150" value="<?php echo $usuario['email']?>">
+                    <input type="email" name="email" id="email" maxlength="50" value="<?php echo $usuario['email']?>">
                 </div>
                 <?php
                     $msg = '';
@@ -49,7 +49,7 @@
                 ?>
                 <div class="campos">
                     <label for="senha">Senha</label>
-                    <input type="password" name="senha" id="senha"  value="<?php echo $usuario['senha']?>" >
+                    <input type="password" name="senha" id="senha"  maxlength="15" value="<?php echo $usuario['senha']?>" >
                 </div>
                 <div class="campos">
                     <label for="telefone">Telefone</label>

@@ -1,4 +1,3 @@
-
 CREATE TABLE farmacia(
 	nome        VARCHAR(150) NOT NULL, 
 	sobre   VARCHAR(255) NOT NULL,
@@ -21,9 +20,9 @@ CREATE TABLE acesso(
 CREATE TABLE usuario_gerenciamento(
 	id          INT NOT NULL    AUTO_INCREMENT,
 	nome        VARCHAR(150) NOT NULL,
-	usuario VARCHAR(150) NOT NULL,
-	senha       VARCHAR(150) NOT NULL,
-	foto VARCHAR(150) NOT NULl,
+	usuario VARCHAR(15) NOT NULL UNIQUE,
+	senha       VARCHAR(15) NOT NULL,
+	foto VARCHAR(255) NOT NULl,
 	acesso      INT NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (acesso) REFERENCES acesso(id)
@@ -32,8 +31,8 @@ CREATE TABLE usuario_gerenciamento(
 CREATE TABLE usuario(
 	id          INT NOT NULL    AUTO_INCREMENT,
 	nome        VARCHAR(150) NOT NULL,
-	email VARCHAR(150) NOT NULL
-	senha       VARCHAR(150) NOT NULL,
+	email VARCHAR(50) NOT NULL UNIQUE,
+	senha       VARCHAR(15) NOT NULL,
 	telefone    CHAR(10),
 	celular     CHAR(11),
 	cpf         CHAR(11) NOT NULL,

@@ -10,11 +10,11 @@
                 <h1>Login</h1>
                 <div class="campos">
                     <label for="email">email</label>
-                    <input type="text" name="email" id="email" maxlength="150">
+                    <input type="text" name="email" id="email" maxlength="50">
                 </div>
                 <div class="campos">
                     <label for="senha">Senha</label>
-                    <input type="password" name="senha" id="senha" >
+                    <input type="password" name="senha" id="senha" maxlength="15">
                 </div>
                 <button type="submit">Entrar</button>  
             </form>
