@@ -1,5 +1,8 @@
         <?php
-            include('../../conexao.php');
+        $conexaoPath="../../conexao.php";
+        $cssPath="../menu/menu.css";
+        $assetsPath="../../";
+        include($conexaoPath);
         ?>
         
 
@@ -11,7 +14,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="produto.css">
-        <link rel="stylesheet" href="../menu/menu.css">
+        <link rel="stylesheet" href=<?php echo $cssPath?>>
         <title>Produto</title>
     </head>
     <body>
@@ -51,7 +54,7 @@
         <div class="conteudo">
             <div class="principal">
                 <div class="produto-foto">
-                    <img src="<?php echo $produto['foto']?>"  alt="produto">
+                    <img src="<?php echo $assetsPath.$produto['foto']?>"  alt="produto">
                 </div>
                 <div class="infos">.
                     <h1><b><?php echo $produto['nome']?></b></h1>

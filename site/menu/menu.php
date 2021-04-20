@@ -1,5 +1,5 @@
         <?php
-            include('../../conexao.php');
+            include($conexaoPath);
 
           
 
@@ -48,10 +48,10 @@
         ?>
         
         <div class="header">
-            <img src="<?php echo $farmacia['logo']; ?>" alt="logo farmacia">
+            <img src="<?php echo $assetsPath.$farmacia['logo']; ?>" alt="logo farmacia">
             <div class="div-usuario">
-                <a href="../carrinho/carrinho.php"><img src="../../assets/imagens/geral/user.png" alt="minha conta">Minha Conta</a> 
-               <a href="../carrinho/carrinho.php"><img  src="../../assets/imagens/geral/carts.png" alt="meu carrinho">Meu Carrinho</a> 
+                <a href="carrinho/carrinho.php"><img src="<?php echo $assetsPath?>assets/imagens/geral/user.png" alt="minha conta">Minha Conta</a> 
+               <a href="carrinho/carrinho.php"><img  src="<?php echo $assetsPath?>assets/imagens/geral/carts.png" alt="meu carrinho">Meu Carrinho</a> 
             </div>
             <div class="div-filtros">
                 <form action="../home/index.php" method="post">
@@ -68,7 +68,7 @@
                     </select>
                     <input class="faixa-preco" type="number" name="min" placeholder=" preço minimo" value="<?php echo  $min?>">
                     <input class="faixa-preco" type="number" name="max" placeholder=" preço máximo" value="<?php echo  $max?>">
-                    <button type="submit"><img  src="../../assets/imagens/geral/search.png" alt="procurar"></button>
+                    <button type="submit"><img  src="<?php echo $assetsPath?>assets/imagens/geral/search.png" alt="procurar"></button>
                 </form>
             </div>
             
