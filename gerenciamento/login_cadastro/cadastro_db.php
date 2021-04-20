@@ -69,7 +69,7 @@
 				if($mensagem == 'alterado'){
 			?>
 					<a href="cadastro.php?id=<?php echo  $_POST['id']?>"><button>Meus Dados</button></a>
-					<a href="../home/home.php?id=<?php echo  $_POST['id']?>"><button>Home</button></a>
+					<a href="../index.php?id=<?php echo  $_POST['id']?>"><button>Home</button></a>
 			<?php
 				}else{ 
 			?>

@@ -80,7 +80,7 @@
 			<img src="<?php echo $imagem; ?>"  alt="resposta">
 			<h1><?php echo $retorno ?></h1>
 			<a href="listar_produtos.php"><button>Listagem de produtos</button></a>
-			<a href="../home/home.php"><button>home</button></a>
+			<a href="../index.php"><button>home</button></a>
 		</div>
 	</body>
 </html>

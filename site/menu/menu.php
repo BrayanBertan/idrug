@@ -50,11 +50,11 @@
         <div class="header">
             <img src="<?php echo $assetsPath.$farmacia['logo']; ?>" alt="logo farmacia">
             <div class="div-usuario">
-                <a href="carrinho/carrinho.php"><img src="<?php echo $assetsPath?>assets/imagens/geral/user.png" alt="minha conta">Minha Conta</a> 
-               <a href="carrinho/carrinho.php"><img  src="<?php echo $assetsPath?>assets/imagens/geral/carts.png" alt="meu carrinho">Meu Carrinho</a> 
+                <a href="<?php echo $linksPath?>carrinho/carrinho.php"><img src="<?php echo $assetsPath?>assets/imagens/geral/user.png" alt="minha conta">Minha Conta</a> 
+               <a href="<?php echo $linksPath?>carrinho/carrinho.php"><img  src="<?php echo $assetsPath?>assets/imagens/geral/carts.png" alt="meu carrinho">Meu Carrinho</a> 
             </div>
             <div class="div-filtros">
-                <form action="../home/index.php" method="post">
+                <form action="<?php echo $linksPath?>index.php" method="post">
                     <input type="text" name="pesquisa" placeholder="     Pesquisa" value="<?php echo  $pesquisa?>">
                     <select name="categoria" id="categoria">
                     <option value="0" <?php if($categoria == 0) echo'selected'?>>Todas</option>

@@ -3,7 +3,7 @@
 
     
     $sql = "SELECT a.*, b.nome FROM log AS a
-    INNER JOIN usuario_gerenciamento AS b ON b.id = a.updatedBy ORDER BY a.updatedAt DESC";
+    LEFT JOIN usuario_gerenciamento AS b ON b.id = a.updatedBy ORDER BY a.updatedAt DESC";
     $query = mysqli_query($conexao, $sql);
     $logs = [];
     while($log= mysqli_fetch_array($query, MYSQLI_ASSOC)) {

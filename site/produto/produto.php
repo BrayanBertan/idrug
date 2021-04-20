@@ -2,6 +2,7 @@
         $conexaoPath="../../conexao.php";
         $cssPath="../menu/menu.css";
         $assetsPath="../../";
+        $linksPath="../";
         include($conexaoPath);
         ?>
         

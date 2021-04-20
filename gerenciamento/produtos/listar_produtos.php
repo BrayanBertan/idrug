@@ -62,7 +62,7 @@
                         ?>
                             <tr>
                                 <td style="width: 10%"><?php echo $item['id']?></td>
-                                <td style="width: 10%"><img src="<?php echo $item['foto']?>"  alt="produto"></td>
+                                <td style="width: 10%"><img src="../../<?php echo $item['foto']?>"  alt="produto"></td>
                                 <td style="width: 60%"><?php echo $item['nome']?></td>
                                 <td style="width: 10%"><?php echo $item['estoque']?></td>
                                 <td style="width: 10%">

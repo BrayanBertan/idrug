@@ -23,7 +23,7 @@
                     $query = mysqli_query($conexao, $sql);
                     $farmacia = mysqli_fetch_array($query, MYSQLI_ASSOC);
                 ?>
-                <img src="<?php echo $farmacia['logo']; ?>" alt="">
+                <img src="../../<?php echo $farmacia['logo']; ?>" alt="">
                 <div class="campos">
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" maxlength="150" value="<?php echo $farmacia['nome']; ?>">

@@ -47,7 +47,7 @@
         <div class="conteudo">
             <form action="salvar_produto_db.php" method="post">
                 <h1><?php echo  $titulo?></h1>
-                <img src="<?php echo $produto['foto']; ?>" alt="produto">
+                <img src="../../<?php echo $produto['foto']; ?>" alt="produto">
                 <input type="hidden" name="foto" value="<?php echo $produto['foto']; ?>">
                 <input type="hidden" name="id" value="<?php echo $produto['id']; ?>">
                 <div class="campos">

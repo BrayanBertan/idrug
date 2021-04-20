@@ -4,7 +4,7 @@
     $usuario = [  
         'id' => 0,
         'nome'  => '',   
-        'usuario' => '',  
+        'usuario' => 'a',  
         'senha' => '', 
         'foto'  => '../../assets/imagens/geral/user.png'
     ];
