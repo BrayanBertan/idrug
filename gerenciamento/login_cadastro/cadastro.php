@@ -62,6 +62,7 @@
                 ?>
                
                 <button type="submit">Cadastrar</button>
+                <a href="login.php">Já possui uma conta?</a>
             </form>
             <?php
                   if(isset($_GET['msgErro']))

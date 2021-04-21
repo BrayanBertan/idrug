@@ -76,7 +76,7 @@
 
                             foreach($modos_pagamento as $item){
                             ?>
-                            <img src="<?php echo $item['foto']?>"  alt="modo pagamento">
+                            <img src="../../<?php echo $item['foto']?>"  alt="modo pagamento">
                             <?php 
                             }
                             ?>

@@ -10,7 +10,7 @@
                 'volume'    => 0,  
                 'unidade'   => '',   
                ' estoque'   => 0,    
-                'foto'  => '../../assets/imagens/geral/produtos.png'
+                'foto'  => 'assets/imagens/geral/produtos.png'
             ];
             $titulo = 'Cadastrar produto';
             if(isset($_GET['id'])){

@@ -16,7 +16,8 @@
                     <label for="senha">Senha</label>
                     <input type="password" name="senha" id="senha" maxlength="15">
                 </div>
-                <button type="submit">Entrar</button>  
+                <button type="submit">Entrar</button>
+                <a href="login.php">Já possui uma conta?</a> 
             </form>
             <?php
                     $msgErro = '';

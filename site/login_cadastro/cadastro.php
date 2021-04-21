@@ -4,9 +4,13 @@
     $usuario = [  
         'id' => 0,
         'nome'  => '',   
-        'usuario' => '',  
+        'email' => '',  
         'senha' => '', 
-        'foto'  => '../../assets/imagens/geral/user.png'
+        'foto'  => '../../assets/imagens/geral/user.png',
+        'telefone'  => '',   
+        'celular' => '',  
+        'endereco' => '',  
+        'cpf' => ''
     ];
 
     if(isset($_GET['id'])){
@@ -77,6 +81,7 @@
                    }
                 ?>
                 <button type="submit">Cadastrar</button>  
+                <a href="login.php">Já possui uma conta?</a> 
             </form>
             <?php
                   if(isset($_GET['msgErro']))
