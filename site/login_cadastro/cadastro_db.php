@@ -12,15 +12,17 @@
          
 	  $nome = $_POST['nome'];
 	  $email = $_POST['email'];
-	  $senha = $_POST['senha'];
+	  $senha = md5($_POST['senha']);
 	  $foto = $_POST['foto'];
 	  $telefone = $_POST['telefone'];
 	  $celular = $_POST['celular'];
 	  $cpf = $_POST['cpf'];
 	  $endereco = $_POST['endereco'];
 
+
 	  $sql = "SELECT email FROM usuario WHERE email = '{$email}' AND id != {$_POST['id']}";
 
+	
 	  $query = mysqli_query($conexao, $sql);
 	  $quantidade = mysqli_num_rows($query);
 
@@ -50,13 +52,14 @@
                 VALUES (
                  null,
                 '{$nome}',
+				'{$email}',
                 '{$senha}',
                 '{$telefone}',
                 '{$celular}',
                 '{$cpf}',
                 '{$foto}',
-                '{$endereco}',
-                '{$email}'
+                '{$endereco}'
+                
                 )";
 
 			}

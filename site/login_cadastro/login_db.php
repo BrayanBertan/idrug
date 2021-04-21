@@ -3,7 +3,7 @@
     include('../../conexao.php');
 
     $login = $_POST['email'];
-    $senha = $_POST['senha'];
+    $senha = md5($_POST['senha']);
 
     $sql = "SELECT * FROM usuario WHERE email = '{$login}' AND senha = '{$senha}'";
  

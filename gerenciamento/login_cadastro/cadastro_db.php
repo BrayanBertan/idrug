@@ -12,7 +12,7 @@
          
 		$nome = $_POST['nome'];
 		$usuario = $_POST['usuario'];
-		$senha = $_POST['senha'];
+		$senha = md5($_POST['senha']);
 		$acesso = 1;
 		$foto = $_POST['foto'];
 
