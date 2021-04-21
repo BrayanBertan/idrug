@@ -1,9 +1,6 @@
 <?php
-    include('../../conexao.php');
-    $sql = "SELECT * FROM usuario WHERE id = '{$_GET['id']}'";
-   
-    $query = mysqli_query($conexao, $sql);
-    $usuario = mysqli_fetch_array($query, MYSQLI_ASSOC);
+    session_start();
+    $usuario =  $_SESSION['usuario'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -38,7 +35,19 @@
                 <div class="info">
                     <h4><b>Minha conta</b></h4>
                     <p>Editar os meus dados</p>
-                    <a href="../login_cadastro/cadastro.php?id=<?php echo $usuario['id']?>"><button>Ver</button></a>
+                    <a href="../login_cadastro/cadastro.php"><button>Ver</button></a>
+                </div>
+            </div>
+            <div class="modulos">
+                <img src="../../assets/imagens/geral/logo.png"  alt="home_site">
+                <div class="info">
+                    <a href="../index.php"><button>Tela inicial</button></a>
+                </div>
+            </div>
+            <div class="modulos">
+                <img src="../../assets/imagens/geral/logout.png"  alt="logout">
+                <div class="info">
+                    <a href="../login_cadastro/logout.php"><button>Sair</button></a>
                 </div>
             </div>
         </div>
@@ -48,7 +57,3 @@
         </div>
 
 </html>
-
-<?php
-	mysqli_close($conexao);
-?>

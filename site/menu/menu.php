@@ -1,11 +1,15 @@
         <?php
             include($conexaoPath);
-
-          
-
+            session_start();
             $sql = "SELECT * FROM farmacia";
             $query = mysqli_query($conexao, $sql);
             $farmacia = mysqli_fetch_array($query, MYSQLI_ASSOC);
+
+            $isLogged = false;
+            if(isset($_SESSION['usuario'])){
+                $usuario =  $_SESSION['usuario'];
+                $isLogged = true;
+            }
 
 
                     
@@ -50,7 +54,18 @@
         <div class="header">
             <img src="<?php echo $assetsPath.$farmacia['logo']; ?>" alt="logo farmacia">
             <div class="div-usuario">
-                <a href="<?php echo $linksPath?>carrinho/carrinho.php"><img src="<?php echo $assetsPath?>assets/imagens/geral/user.png" alt="minha conta">Minha Conta</a> 
+                <?php
+                    if($isLogged){
+                ?>
+                    <a href="<?php echo $linksPath?>home_usuario/home_usuario.php"><img src="<?php echo $assetsPath?>assets/imagens/geral/user.png" alt="minha conta">Minha Conta</a> 
+                <?php
+                 }else{
+                ?>
+                    <a href="<?php echo $linksPath?>login_cadastro/login.php"><img src="<?php echo $assetsPath?>assets/imagens/geral/user.png" alt="entrar">Entrar</a> 
+                <?php
+                 }
+                ?>
+                
                <a href="<?php echo $linksPath?>carrinho/carrinho.php"><img  src="<?php echo $assetsPath?>assets/imagens/geral/carts.png" alt="meu carrinho">Meu Carrinho</a> 
             </div>
             <div class="div-filtros">

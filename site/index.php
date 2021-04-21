@@ -4,7 +4,6 @@
     $assetsPath="../";
     $linksPath="";
 	include($conexaoPath);
-    
 ?>
 
 <!DOCTYPE html>

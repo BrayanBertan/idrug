@@ -19,6 +19,8 @@
 	  $cpf = $_POST['cpf'];
 	  $endereco = $_POST['endereco'];
 
+	
+
 
 	  $sql = "SELECT email FROM usuario WHERE email = '{$email}' AND id != {$_POST['id']}";
 
@@ -30,8 +32,10 @@
 		header('Location: cadastro.php?msg= email em uso&id='.$_POST['id']);
 		return;
 	}
-
-
+			$setSenha = '';
+			if(trim($_POST['senha'])!=''){
+				$setSenha = "senha = '{$senha}',";
+			}
 
 			$mensagem = '';
 			if($_POST['id'] !=0){
@@ -39,13 +43,28 @@
 				$sql = "UPDATE usuario SET 
 				nome = '{$nome}',
 				email = '{$email}',
-				senha = '{$senha}',
+				$setSenha
 				foto = '{$foto}',
 				telefone = '{$telefone}',
 				celular = '{$celular}',
 				cpf = '{$cpf}',
 				endereco = '{$endereco}'
 				WHERE id = {$_POST['id']} ";
+
+				$usuario = [  
+					'id' => $_POST['id'],
+					'nome' => $nome,
+					'email' => $email,
+					'senha' => $senha,
+					'foto' => $foto,
+					'telefone' => $telefone,
+					'celular' => $celular,
+					'cpf' => $cpf,
+					'endereco' => $endereco
+				];
+				session_start();
+				$_SESSION['usuario'] =  $usuario;
+		
 			}else{
 				$mensagem = 'criado';
 				$sql = "INSERT INTO usuario

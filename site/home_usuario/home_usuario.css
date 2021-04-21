@@ -17,7 +17,7 @@ body{
 
 .conteudo .modulos {
     float: left;
-    width: 15%;
+    width: 10%;
     height: 200px;
     margin: 50px;
 }
@@ -52,7 +52,7 @@ body{
 
 #bem-vindo {
     float: left;
-    width: 34%;
+    width: 30%;
     height: 800px;
 }
 

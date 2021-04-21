@@ -1,6 +1,5 @@
 <?php
-    include('../../conexao.php');
-
+    session_start();
     $usuario = [  
         'id' => 0,
         'nome'  => '',   
@@ -13,11 +12,9 @@
         'cpf' => ''
     ];
 
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-        $sql = 'SELECT * FROM usuario WHERE id ='.$id;
-        $query = mysqli_query($conexao, $sql);
-        $usuario = mysqli_fetch_array($query, MYSQLI_ASSOC);
+    if(isset($_SESSION['usuario'])){
+        $usuario =  $_SESSION['usuario'];
+        $usuario['senha'] = '';
     }
 ?>
       
@@ -91,7 +88,3 @@
 		
 	</body>
 </html>
-
-<?php
-	mysqli_close($conexao);
-?>

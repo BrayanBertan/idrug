@@ -13,6 +13,10 @@
 
     if($usuario_retorno == 1){
         $usuario = mysqli_fetch_array($query, MYSQLI_ASSOC);
+
+        session_start();
+        $_SESSION['usuario'] =  $usuario;
+
         header('Location: ../home_usuario/home_usuario.php?id='.$usuario['id']);
     }else{
         header('Location: login.php?msgErro=dados incorretos');
