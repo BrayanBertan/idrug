@@ -1,4 +1,13 @@
 ﻿<?php
+
+            session_start();
+            if(!isset($_SESSION['usuario_gerenciamento'])){
+                header('Location: login_cadastro/login.php?msgErro=Entre para acessar o painel!');
+                return;
+            }
+
+            $usuario =  $_SESSION['usuario_gerenciamento'];
+
             include('../../conexao.php');
             $sql = "SELECT * FROM modos_pagamento";
             $query = mysqli_query($conexao, $sql);

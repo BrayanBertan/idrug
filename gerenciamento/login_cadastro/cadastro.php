@@ -1,6 +1,6 @@
 <?php
     include('../../conexao.php');
-
+    session_start();
     $usuario = [  
         'id' => 0,
         'nome'  => '',   
@@ -9,11 +9,9 @@
         'foto'  => '../../assets/imagens/geral/user.png'
     ];
 
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-        $sql = 'SELECT * FROM usuario_gerenciamento WHERE id ='.$id;
-        $query = mysqli_query($conexao, $sql);
-        $usuario = mysqli_fetch_array($query, MYSQLI_ASSOC);
+    if(isset($_SESSION['usuario_gerenciamento'])){
+        $usuario =  $_SESSION['usuario_gerenciamento'];
+        $usuario['senha'] = '';
     }
 ?>
         

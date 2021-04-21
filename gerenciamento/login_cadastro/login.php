@@ -17,7 +17,7 @@
                     <input type="password" name="senha" id="senha" maxlength="15">
                 </div>
                 <button type="submit">Entrar</button>
-                <a href="login.php">Já possui uma conta?</a> 
+                <a href="cadastro.php">Ainda não possui uma conta?</a> 
             </form>
             <?php
                     $msgErro = '';

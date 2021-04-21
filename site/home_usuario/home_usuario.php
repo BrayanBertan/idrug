@@ -47,7 +47,7 @@
             <div class="modulos">
                 <img src="../../assets/imagens/geral/logout.png"  alt="logout">
                 <div class="info">
-                    <a href="../login_cadastro/logout.php"><button>Sair</button></a>
+                    <a href="../../logout.php?page=site/"><button>Sair</button></a>
                 </div>
             </div>
         </div>

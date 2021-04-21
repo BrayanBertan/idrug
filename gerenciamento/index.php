@@ -1,11 +1,13 @@
 <?php
-    include('../conexao.php');
-
-    if(!isset($_GET['id']))
+    session_start();
+    if(!isset($_SESSION['usuario_gerenciamento'])){
         header('Location: login_cadastro/login.php?msgErro=Entre para acessar o painel!');
-    $sql = "SELECT * FROM usuario_gerenciamento WHERE id = '{$_GET['id']}'";
-    $query = mysqli_query($conexao, $sql);
-    $usuario = mysqli_fetch_array($query, MYSQLI_ASSOC);
+        return;
+    }
+
+    $usuario =  $_SESSION['usuario_gerenciamento'];
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -91,10 +93,12 @@
                     <a href="login_cadastro/cadastro.php?id=<?php echo $usuario['id']?>"><button>Ver</button></a>
                 </div>
             </div>
+            <div class="modulos">
+                <img src="../assets/imagens/geral/logout.png"  alt="logout">
+                <div class="info">
+                    <a href="../logout.php?page=gerenciamento/login_cadastro/login.php"><button>Sair</button></a>
+                </div>
+            </div>
         </div>
 
 </html>
-
-<?php
-	mysqli_close($conexao);
-?>

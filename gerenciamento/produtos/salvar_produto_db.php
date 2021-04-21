@@ -52,6 +52,13 @@
                 )";
            }
 
+           session_start();
+           if(!isset($_SESSION['usuario_gerenciamento'])){
+               header('Location: login_cadastro/login.php?msgErro=Entre para acessar o painel!');
+               return;
+           }
+	     $usuario =  $_SESSION['usuario_gerenciamento'];
+
 
            $query = mysqli_query($conexao, $sql);
 			$retorno;
@@ -67,11 +74,11 @@
 
                if($mensagem === 'alterado'){
                     $updatedAt = date('Y-m-d H:i:s');
-                    $sql = "INSERT INTO log VALUES(null,'$updatedAt',1,'produto','update')";
+                    $sql = "INSERT INTO log VALUES(null,'$updatedAt','{$usuario['id']}','produto','update')";
                     $query = mysqli_query($conexao, $sql);
                }else{
                     $updatedAt = date('Y-m-d H:i:s');
-                    $sql = "INSERT INTO log VALUES(null,'$updatedAt',1,'produto','insert')";
+                    $sql = "INSERT INTO log VALUES(null,'$updatedAt','{$usuario['id']}','produto','insert')";
                     $query = mysqli_query($conexao, $sql);
                }
 		?>

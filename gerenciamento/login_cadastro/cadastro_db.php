@@ -27,16 +27,31 @@
 			header('Location: cadastro.php?msg= usuario em uso&id='.$_POST['id']);
 			return;
 		}
-			
+
+			$setSenha = '';
+			if(trim($_POST['senha'])!=''){
+				$setSenha = "senha = '{$senha}',";
+			}
+
 			$mensagem = '';
            if($_POST['id'] !=0){
                 $mensagem = 'alterado';
                 $sql = "UPDATE usuario_gerenciamento SET 
                 nome = '{$nome}',
                 usuario = '{$usuario}',
-                senha = '{$senha}',
+				$setSenha
                 foto = '{$foto}'
                 WHERE id = {$_POST['id']} ";
+
+				$usuario = [  
+					'id' => $_POST['id'],
+					'nome' => $nome,
+					'usuario' => $usuario,
+					'senha' => $senha,
+					'foto' => $foto
+				];
+				session_start();
+				$_SESSION['usuario_gerenciamento'] =  $usuario;
            }else{
                 $mensagem = 'criado';
 				$sql = "INSERT INTO usuario_gerenciamento
@@ -74,7 +89,7 @@
 				}else{ 
 			?>
 			<a href="login.php"><button>Login</button></a>
-			<a href="cadastro_php"><button>Cadastro</button></a>
+			<a href="cadastro.php"><button>Cadastro</button></a>
 			<?php
 				}
 			?>

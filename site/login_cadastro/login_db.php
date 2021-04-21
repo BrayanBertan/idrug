@@ -17,7 +17,7 @@
         session_start();
         $_SESSION['usuario'] =  $usuario;
 
-        header('Location: ../home_usuario/home_usuario.php?id='.$usuario['id']);
+        header('Location: ../home_usuario/home_usuario.php');
     }else{
         header('Location: login.php?msgErro=dados incorretos');
     }

@@ -1,5 +1,8 @@
 <?php
 	include('../../conexao.php');
+
+	session_start();
+	$usuario =  $_SESSION['usuario_gerenciamento'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -47,7 +50,7 @@
 
 
 			$updatedAt = date('Y-m-d H:i:s');
-			$sql = "INSERT INTO log VALUES(null,'$updatedAt',1,'farmacia e modos_pagamento','update')";
+			$sql = "INSERT INTO log VALUES(null,'$updatedAt','{$usuario['id']}','farmacia e modos_pagamento','update')";
 			$query = mysqli_query($conexao, $sql);
 		?>
 
