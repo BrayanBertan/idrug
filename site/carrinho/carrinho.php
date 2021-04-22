@@ -1,5 +1,32 @@
 <?php
-	include('../../conexao.php');
+    $carrinho = [];
+    if(isset($_COOKIE['carrinho'])){
+        $carrinho = json_decode($_COOKIE['carrinho'],true);
+    }
+
+	if(isset($_POST['acao_add'])){
+        $novoProdutoCarrinho = [
+            'id' => $_POST['id'],
+            'foto' => $_POST['foto'],
+            'nome' => $_POST['nome'],
+            'preco' => $_POST['preco'],
+            'quantidade' => $_POST['quantidade']
+        ];
+        $carrinho[] = $novoProdutoCarrinho;
+        setcookie('carrinho', json_encode($carrinho));
+    }
+
+    
+	if(isset($_GET['acao_delete'])){
+        unset($carrinho[$_GET['acao_delete']]);
+        setcookie('carrinho', json_encode($carrinho));
+    }
+
+    $total = 0;
+    // echo "<pre>";
+    //     print_r($carrinho);
+    // echo "</pre>";
+
     
 ?>
 
@@ -17,33 +44,29 @@
         <div class="carrinho">
                
                     <?php
-                        for($i =0; $i < 15; $i++){
-                         
+                        foreach($carrinho as $key => $item){
+                            $total += ($item['preco'] * $item['quantidade']);
                         ?>
                          
                                 <div class="itens">
-                                <img src="../../assets/imagens/geral/carts.png" alt="meu carrinho">
-                                <p><?php echo 'xddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'?></p>
-                                <p id="preco"><?php echo 'R$15,00 R$15,00'?></p>
-                                <button class="quantidade">-</button>
-                                <div class="quantidade"><p>1</p></div>
-                                <button class="quantidade">+</button>
-                                <a href=""><img src="../../assets/imagens/geral/deletar.png" alt="deletar item"></a>
+                                    <img src="../../<?php echo $item['foto']?>" alt="meu carrinho">
+                                    <p><?php echo $item['nome']?></p>
+                                    <p id="preco">Unitário:<?php echo $item['preco'].' - Valor total:'.($item['preco'] * $item['quantidade'])?></p>
+                                    <button class="quantidade">-</button>
+                                    <div class="quantidade"><p>1</p></div>
+                                    <button class="quantidade">+</button>
+                                    <a href="carrinho.php?acao_delete=<?php echo $key?>"><img src="../../assets/imagens/geral/deletar.png" alt="deletar item"></a>
                                 </div>
-                          
+                                <hr style="background-color:black;height:2px;">
                         <?php
                             } 
                         ?>
         </div>
         <div id="infos">
-            <a href="../home/"><h3>Continuar comprando</h3></a>
-            <h3>Total: R$225,00</h3>
+            <a href="../"><h3>Continuar comprando</h3></a>
+            <h3>Total:<?php echo $total?></h3>
             <a href=""><h3>Finalizar compra</h3></a>
         </div>
     </body>
 
 </html>
-
-<?php
-	mysqli_close($conexao);
-?>

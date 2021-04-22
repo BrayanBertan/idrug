@@ -67,10 +67,18 @@
                     <br>
                     <p><?php echo "{$produto['nome_categoria']} {$produto['volume']} {$produto['nome_unidade']}"?></p>
                     <br> <br>
-                        <a href="../carrinho/carrinho.php"><button>Comprar</button></a>
                         <button class="quantidade">-</button>
                         <div class="quantidade"><p>1</p></div>
-                        <button class="quantidade">+</button> <br> <br>
+                        <button class="quantidade">+</button>
+                        <form action="../carrinho/carrinho.php" method="post">
+                            <input type="hidden" name="acao_add" value=<?php echo $produto['id']?>>
+                            <input type="hidden" name="id" value=<?php echo $produto['id']?>>
+                            <input type="hidden" name="foto" value=<?php echo $produto['foto']?>>
+                            <input type="hidden" name="nome" value=<?php echo $produto['nome']?>>
+                            <input type="hidden" name="preco" value=<?php echo $produto['preco']?>>
+                            <input type="hidden" name="quantidade" value="1">
+                            <button type="submit">Comprar</button>
+                        </form><br> <br> <br>
                         <div class="modo-pagamento-aceito">
                             <p>Modos de pagamento aceitos</p>
                             <?php 

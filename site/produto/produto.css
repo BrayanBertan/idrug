@@ -40,7 +40,14 @@
     border: none;
 }
 
-.conteudo .principal .infos button{
+
+.conteudo .principal .infos form {
+    width: 75px;
+    height: 40px;
+    float: left;
+}
+
+.conteudo .principal .infos form button{
     width: 75px;
     height: 40px;
     background-color: #7ABD7E;
