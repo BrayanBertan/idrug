@@ -8,6 +8,12 @@
         <div class="conteudo">
             <form action="login_db.php" method="post">
                 <h1>Login</h1>
+                <?php
+                    if(isset($_GET['compra'])){
+                        echo "<input type='hidden' name='compra' id='compra' value='true'>";
+                    }
+                    
+                ?>
                 <div class="campos">
                     <label for="email">email</label>
                     <input type="text" name="email" id="email" maxlength="50">

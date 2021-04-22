@@ -4,7 +4,7 @@
     $usuario = [  
         'id' => 0,
         'nome'  => '',   
-        'usuario' => 'a',  
+        'usuario' => '',  
         'senha' => '', 
         'foto'  => '../../assets/imagens/geral/user.png'
     ];
@@ -13,6 +13,7 @@
         $usuario =  $_SESSION['usuario_gerenciamento'];
         $usuario['senha'] = '';
     }
+
 ?>
         
 

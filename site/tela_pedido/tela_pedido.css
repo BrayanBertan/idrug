@@ -1,0 +1,33 @@
+.conteudo{
+    margin: auto;
+    width: 50%;
+    height: 1000px;
+    text-align: center;
+    background-color: #7ABD7E;
+}
+
+.conteudo  .modo-pagamento-aceito{
+    width: 800px;
+    height: 100px;
+    margin: auto;
+}
+
+.conteudo  .modo-pagamento-aceito *{
+    float: left;
+    background-color: transparent;
+    margin-right: 5px;
+    width: 50px;
+    height: 28px;
+}
+
+.conteudo h2{
+    text-align: right;
+    margin: 5px;
+}
+
+.conteudo form button{
+    margin-left: 5px;
+    width: 100px;
+    height: 50px;
+}
+

@@ -2,6 +2,7 @@
     $carrinho = [];
     if(isset($_COOKIE['carrinho'])){
         $carrinho = json_decode($_COOKIE['carrinho'],true);
+        echo count($carrinho);
     }
 
 	if(isset($_POST['acao_add'])){
@@ -13,15 +14,20 @@
             'quantidade' => $_POST['quantidade']
         ];
         $carrinho[] = $novoProdutoCarrinho;
-        setcookie('carrinho', json_encode($carrinho));
+        setcookie('carrinho', json_encode($carrinho), 0, '/');
     }
 
     
 	if(isset($_GET['acao_delete'])){
         unset($carrinho[$_GET['acao_delete']]);
-        setcookie('carrinho', json_encode($carrinho));
+        setcookie('carrinho', json_encode($carrinho), 0, '/');
     }
 
+
+    if(count($carrinho) == 0){
+        header('Location: ../');
+        return;
+    }
     $total = 0;
     // echo "<pre>";
     //     print_r($carrinho);
@@ -65,7 +71,7 @@
         <div id="infos">
             <a href="../"><h3>Continuar comprando</h3></a>
             <h3>Total:<?php echo $total?></h3>
-            <a href=""><h3>Finalizar compra</h3></a>
+            <a href="../tela_pedido/tela_pedido.php"><h3>Finalizar compra</h3></a>
         </div>
     </body>
 

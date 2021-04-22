@@ -16,6 +16,9 @@
 		$acesso = 1;
 		$foto = $_POST['foto'];
 
+		
+      
+
 		$sql = "SELECT usuario FROM usuario_gerenciamento WHERE usuario = '{$usuario}' AND id != {$_POST['id']}";
 
 		$query = mysqli_query($conexao, $sql);
@@ -43,7 +46,7 @@
                 foto = '{$foto}'
                 WHERE id = {$_POST['id']} ";
 
-				$usuario = [  
+				$usuario_obj = [  
 					'id' => $_POST['id'],
 					'nome' => $nome,
 					'usuario' => $usuario,
@@ -51,7 +54,7 @@
 					'foto' => $foto
 				];
 				session_start();
-				$_SESSION['usuario_gerenciamento'] =  $usuario;
+				$_SESSION['usuario_gerenciamento'] =  $usuario_obj;
            }else{
                 $mensagem = 'criado';
 				$sql = "INSERT INTO usuario_gerenciamento

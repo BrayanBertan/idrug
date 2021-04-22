@@ -16,9 +16,16 @@
 
         session_start();
         $_SESSION['usuario'] =  $usuario;
-
+        if(isset($_POST['compra'])){
+            header('Location: ../tela_pedido/tela_pedido.php');
+            return;
+        }
         header('Location: ../home_usuario/home_usuario.php');
     }else{
+        if(isset($_POST['compra'])){
+            header('Location: login.php?msgErro=dados incorretos&compra=true');
+            return;
+        }
         header('Location: login.php?msgErro=dados incorretos');
     }
 

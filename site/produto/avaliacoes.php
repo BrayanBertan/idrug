@@ -2,8 +2,8 @@
             <br>
             <div class="avaliacoes">
                 <form action="avaliacao_db.php" method="post">
-                    <input type="hidden" name="usuario" id="usuario" value=<?php echo $usuario['id']?>>
-                    <input type="hidden" name="produto" id="produto" value=<?php echo $produto['id']?>>
+                    <input type="hidden" name="usuario" id="usuario" value=<?php if(isset($usuario['id']))echo $usuario['id']?>>
+                    <input type="hidden" name="produto" id="produto" value=<?php if(isset($produto['id']))echo $produto['id']?>>
                     <label for="comentario">Comentario</label>
                     <input type="text" name="comentario" id="comentario" maxlength="255">
                     <label for="nota">Nota</label>
