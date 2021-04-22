@@ -1,12 +1,14 @@
-            <h2><b>Avaliações</b></h2><br><br>
+            <h2><b> Avaliações Nota(<?php echo round($produto['nota'],1)?>) </b></h2><br><br>
             <br>
             <div class="avaliacoes">
-                <form action="">
+                <form action="avaliacao_db.php" method="post">
+                    <input type="hidden" name="usuario" id="usuario" value=<?php echo $usuario['id']?>>
+                    <input type="hidden" name="produto" id="produto" value=<?php echo $produto['id']?>>
                     <label for="comentario">Comentario</label>
                     <input type="text" name="comentario" id="comentario" maxlength="255">
                     <label for="nota">Nota</label>
-                    <input type="number" name="nota" id="nota" >
-                    <button type="submit" disabled>enviar</button>
+                    <input type="number" step=".01" name="nota" id="nota">
+                    <button type="submit" <?php if(!$isLogged) echo 'disabled'?>>enviar</button>
                 </form>
                 <?php 
                     if($quantidade_avaliacoes == 0){

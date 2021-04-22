@@ -31,7 +31,7 @@ CREATE TABLE usuario_gerenciamento(
 CREATE TABLE usuario(
 	id          INT NOT NULL    AUTO_INCREMENT,
 	nome        VARCHAR(150) NOT NULL,
-	email VARCHAR(50) NOT NULL UNIQUE,
+	email 		VARCHAR(50) NOT NULL UNIQUE,
 	senha       VARCHAR(255) NOT NULL,
 	telefone    CHAR(10),
 	celular     CHAR(11),
@@ -74,7 +74,7 @@ CREATE TABLE avaliacao(
 	produto    INT NOT NULL,
 	usuario    INT NOT NULL,
 	comentario VARCHAR(255) NOT NULL,
-	nota       INT NOT NULL,
+	nota       DECIMAL(5,2)  NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (produto) REFERENCES produto(id),
     FOREIGN KEY (usuario) REFERENCES usuario(id)

@@ -23,10 +23,11 @@
          include('../menu/menu.php');
 
          $id = $_GET['id'];
-         $sql = "SELECT a.*,b.nome AS nome_categoria,c.nome AS nome_unidade FROM produto AS a
+         $sql = "SELECT a.*,b.nome AS nome_categoria,c.nome AS nome_unidade,(SELECT AVG(nota) FROM avaliacao WHERE produto = $id) AS nota FROM produto AS a
                  INNER JOIN categoria AS b ON b.id = a.categoria
                  INNER JOIN unidade AS c ON c.id = a.unidade
                  WHERE a.id = $id";
+
 
                
         $query = mysqli_query($conexao, $sql);
@@ -42,7 +43,7 @@
          
          $sql = "SELECT a.*,b.foto,b.nome FROM avaliacao AS a 
                 INNER JOIN usuario AS b ON b.id = a.usuario
-                WHERE produto = $id";
+                WHERE produto = $id ORDER BY a.id DESC";
   
          $avaliacoes = [];
          $query = mysqli_query($conexao, $sql);
