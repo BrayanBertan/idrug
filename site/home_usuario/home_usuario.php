@@ -18,7 +18,7 @@
                 <div class="info">
                     <h4><b>Pedidos</b></h4>
                     <p>Meus pedidos</p>
-                    <a href=""><button>Ver</button></a>
+                    <a href="../meus_pedidos/meus_pedidos.php"><button>Ver</button></a>
                 </div>
             </div>
             <div class="modulos">
@@ -26,7 +26,7 @@
                 <div class="info">
                     <h4><b>Carrinho</b></h4>
                     <p>Meu carrinho</p>
-                    <a href=""><button>Ver</button></a>
+                    <a href="../carrinho/carrinho.php"><button>Ver</button></a>
                 </div>
             </div>
           
@@ -41,7 +41,7 @@
             <div class="modulos">
                 <img src="../../assets/imagens/geral/logo.png"  alt="home_site">
                 <div class="info">
-                    <a href="../index.php"><button>Tela inicial</button></a>
+                    <a href="../"><button>Tela inicial</button></a>
                 </div>
             </div>
             <div class="modulos">
