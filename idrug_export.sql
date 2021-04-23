@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 20-Abr-2021 às 21:07
+-- Generation Time: 23-Abr-2021 às 19:34
 -- Versão do servidor: 5.7.17
 -- PHP Version: 5.6.30
 
@@ -55,8 +55,22 @@ CREATE TABLE `avaliacao` (
   `produto` int(11) NOT NULL,
   `usuario` int(11) NOT NULL,
   `comentario` varchar(255) NOT NULL,
-  `nota` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `nota` decimal(5,2) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+--
+-- Extraindo dados da tabela `avaliacao`
+--
+
+INSERT INTO `avaliacao` (`id`, `produto`, `usuario`, `comentario`, `nota`) VALUES
+(1, 1, 2, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa', '9.00'),
+(2, 1, 2, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa', '9.00'),
+(3, 1, 2, 'ddadsasddassad', '8.00'),
+(4, 1, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et pulvinar orci. Sed ut ante volutpat, facilisis libero sit amet, pharetra ligula. Nullam nec tristique libero. Sed ac metus consectetur, commodo diam non, pellentesque diam. Proin augue', '7.00'),
+(5, 1, 2, 'ggggggggggggggggggggggggggggggggg', '7.50'),
+(6, 1, 2, 'aaaaaaaaaaaaaaaaaaaaaaaa', '9.20'),
+(7, 1, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et pulvinar orci. Sed ut ante volutpat, facilisis libero sit amet, pharetra ligula. Nullam nec tristique libero. Sed ac metus consectetur, commodo diam non, pellentesque diam. Proin augue', '9.80'),
+(8, 1, 2, 'aaaaaaaaaaaaaaaaaaaaaaaa', '9.30');
 
 -- --------------------------------------------------------
 
@@ -119,7 +133,7 @@ CREATE TABLE `farmacia` (
 --
 
 INSERT INTO `farmacia` (`nome`, `sobre`, `endereco`, `telefone`, `celular`, `email`, `logo`, `cnpj`) VALUES
-('Farmacia', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Rua Marcos Savaris 30 Monte Verde Morro da Fumaça Santa Catarina', '34349999', '48988046155', 'farmacia@gmail.com', 'assets/imagens/geral/logo.png', '99999999999999');
+('Farmacia 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'Rua Marcos Savaris 30 Monte Verde Morro da Fumaça Santa Catarina', '34349999', '48988046155', 'farmacia@gmail.com', 'assets/imagens/geral/logo.png', '99999999999999');
 
 -- --------------------------------------------------------
 
@@ -136,6 +150,16 @@ CREATE TABLE `item` (
   `receita` varchar(150) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `item`
+--
+
+INSERT INTO `item` (`id`, `pedido`, `produto`, `quantidade`, `preco_pago_unitario`, `receita`) VALUES
+(1, 4, 2, 1, 5, '1'),
+(2, 4, 1, 1, 13, '0'),
+(3, 6, 2, 1, 5, '1'),
+(4, 6, 1, 1, 13, '0');
+
 -- --------------------------------------------------------
 
 --
@@ -149,6 +173,16 @@ CREATE TABLE `log` (
   `tabela` varchar(30) NOT NULL,
   `tipo` varchar(8) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `log`
+--
+
+INSERT INTO `log` (`id`, `updatedAt`, `updatedBy`, `tabela`, `tipo`) VALUES
+(1, '2021-04-21 18:46:33', 1, 'produto', 'insert'),
+(2, '2021-04-21 21:32:05', 2, 'farmacia e modos_pagamento', 'update'),
+(3, '2021-04-22 00:56:31', 2, 'produto', 'update'),
+(4, '2021-04-22 23:11:34', 5, 'produto', 'insert');
 
 -- --------------------------------------------------------
 
@@ -171,7 +205,7 @@ INSERT INTO `modos_pagamento` (`id`, `tipo`, `status`, `foto`) VALUES
 (1, 'Cartão Visa', 1, 'assets/imagens/geral/visa.png'),
 (2, 'Cartão Mastercard', 1, 'assets/imagens/geral/mastercard.png'),
 (3, 'Cartão Boleto', 1, 'assets/imagens/geral/barcode.png'),
-(4, 'Cartão Dinheiro', 1, 'assets/imagens/geral/money.png'),
+(4, 'Cartão Dinheiro', 0, 'assets/imagens/geral/money.png'),
 (5, 'Cartão Paypal', 1, 'assets/imagens/geral/paypal.png'),
 (6, 'Pix', 1, 'assets/imagens/geral/pix.png');
 
@@ -188,6 +222,16 @@ CREATE TABLE `pedido` (
   `endereco` varchar(255) NOT NULL,
   `status` char(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `pedido`
+--
+
+INSERT INTO `pedido` (`id`, `usuario`, `modo_pagamento`, `endereco`, `status`) VALUES
+(7, 2, 6, 'rua', '1'),
+(6, 2, 6, 'rua', '6'),
+(5, 2, 4, 'rua', '1'),
+(4, 2, 3, 'rua', '1');
 
 -- --------------------------------------------------------
 
@@ -207,6 +251,14 @@ CREATE TABLE `produto` (
   `estoque` int(11) NOT NULL,
   `foto` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `produto`
+--
+
+INSERT INTO `produto` (`id`, `nome`, `descricao`, `categoria`, `preco`, `receita`, `volume`, `unidade`, `estoque`, `foto`) VALUES
+(1, 'Teste teste atualizado', 'testeeeeeeeeeeeeeeeeeeeeeeeeee', 1, '12.50', 0, 3, 1, 5, 'assets/imagens/geral/produtos.png'),
+(2, 'ads', 'adaadadad', 1, '5.00', 1, 5, 1, 5, 'assets/imagens/geral/produtos.png');
 
 -- --------------------------------------------------------
 
@@ -240,13 +292,21 @@ CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `nome` varchar(150) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `senha` varchar(15) NOT NULL,
+  `senha` varchar(255) NOT NULL,
   `telefone` char(10) DEFAULT NULL,
   `celular` char(11) DEFAULT NULL,
   `cpf` char(11) NOT NULL,
   `foto` varchar(150) NOT NULL,
   `endereco` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nome`, `email`, `senha`, `telefone`, `celular`, `cpf`, `foto`, `endereco`) VALUES
+(1, 'Teste teste atualizado 2', 'teste@gmail.com', 'c56d0e9a7ccec67b4ea131655038d604', '4834341193', '88888888888', '08989208920', '../../assets/imagens/geral/user.png', 'rua tal'),
+(2, 'Teste', 'brayan_bertan@hotmail.com', 'e10adc3949ba59abbe56e057f20f883e', '34341193', '88888888888', '08989208920', '../../assets/imagens/geral/user.png', 'rua tal');
 
 -- --------------------------------------------------------
 
@@ -258,10 +318,19 @@ CREATE TABLE `usuario_gerenciamento` (
   `id` int(11) NOT NULL,
   `nome` varchar(150) NOT NULL,
   `usuario` varchar(15) NOT NULL,
-  `senha` varchar(15) NOT NULL,
+  `senha` varchar(255) NOT NULL,
   `foto` varchar(255) NOT NULL,
   `acesso` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `usuario_gerenciamento`
+--
+
+INSERT INTO `usuario_gerenciamento` (`id`, `nome`, `usuario`, `senha`, `foto`, `acesso`) VALUES
+(1, 'admin', 'admin', '123456', '../../assets/imagens/geral/user.png', 5),
+(3, 'rtr', 'adc', '202cb962ac59075b964b07152d234b70', '../../assets/imagens/geral/user.png', 15),
+(5, 'atr', 'atr', '202cb962ac59075b964b07152d234b70', '../../assets/imagens/geral/user.png', 5);
 
 --
 -- Indexes for dumped tables
@@ -358,7 +427,7 @@ ALTER TABLE `acesso`
 -- AUTO_INCREMENT for table `avaliacao`
 --
 ALTER TABLE `avaliacao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `categoria`
 --
@@ -368,12 +437,12 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `modos_pagamento`
 --
@@ -383,12 +452,12 @@ ALTER TABLE `modos_pagamento`
 -- AUTO_INCREMENT for table `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `unidade`
 --
@@ -398,12 +467,12 @@ ALTER TABLE `unidade`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `usuario_gerenciamento`
 --
 ALTER TABLE `usuario_gerenciamento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
