@@ -31,3 +31,32 @@
     height: 50px;
 }
 
+
+
+.resposta{
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 30%;
+    height: 600px;
+    padding: 50px;
+}
+
+
+.resposta img{
+    margin-bottom: 15px;
+    width: 75%;
+    height: 75%;
+}
+
+
+.resposta h3{
+    text-align: center;
+}
+
+.resposta button{
+    margin: 5%;
+    width: 30%;
+    height: 50px;
+}
+

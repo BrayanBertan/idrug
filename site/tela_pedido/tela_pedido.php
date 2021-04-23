@@ -44,7 +44,7 @@
             <?php
             foreach($carrinho as $item){
                 $total += ($item['preco'] * $item['quantidade']);
-                $itens .= ' | '.$item['nome'];
+                $itens .= '  |   '.$item['nome'].' x'.$item['quantidade'].' R$'.($item['preco'] * $item['quantidade']);
             } 
             ?>
             <p><?php echo $itens?></p>      
@@ -54,7 +54,9 @@
         <p><?php echo $usuario['endereco']?></p>
         <hr style="background-color:black;height:2px;">
         <h3>Modo de pagamento</h3>
-       <form action="" method="post">
+       <form action="criar_pedido.php" method="post">
+           <input type="hidden" name="usuario" value=<?php echo $usuario['id']?>>
+           <input type="hidden" name="endereco" value=<?php echo $usuario['endereco']?>>
             <div class="modo-pagamento-aceito">
                 <?php 
                 foreach($modos_pagamento as $item){

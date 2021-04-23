@@ -76,6 +76,7 @@
                             <input type="hidden" name="foto" value=<?php echo $produto['foto']?>>
                             <input type="hidden" name="nome" value=<?php echo $produto['nome']?>>
                             <input type="hidden" name="preco" value=<?php echo $produto['preco']?>>
+                            <input type="hidden" name="receita" value=<?php echo $produto['receita']?>>
                             <input type="hidden" name="quantidade" value="1">
                             <button type="submit">Comprar</button>
                         </form><br> <br> <br>

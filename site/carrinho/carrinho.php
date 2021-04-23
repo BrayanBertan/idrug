@@ -2,7 +2,7 @@
     $carrinho = [];
     if(isset($_COOKIE['carrinho'])){
         $carrinho = json_decode($_COOKIE['carrinho'],true);
-        echo count($carrinho);
+        //echo count($carrinho);
     }
 
 	if(isset($_POST['acao_add'])){
@@ -11,7 +11,8 @@
             'foto' => $_POST['foto'],
             'nome' => $_POST['nome'],
             'preco' => $_POST['preco'],
-            'quantidade' => $_POST['quantidade']
+            'quantidade' => $_POST['quantidade'],
+            'receita' => $_POST['receita']
         ];
         $carrinho[] = $novoProdutoCarrinho;
         setcookie('carrinho', json_encode($carrinho), 0, '/');
