@@ -21,15 +21,18 @@
 <html lang="pt-br">
 	<head>
 		<title>Cadastro</title>
-        <link rel="stylesheet" href="login_cadastro.css">
+        <link rel="stylesheet" href="login_cadastro.css" enctype="multipart/form-data">
 	</head>
 	<body>
         <div class="conteudo">
-            <form action="cadastro_db.php" method="post">
+            <form action="cadastro_db.php" method="post" enctype="multipart/form-data">
                 <h1>Cadastro</h1>
                 <img src="<?php echo $usuario['foto']?>"  alt="minha fotooo">
-                <input type="hidden" name="foto" value="<?php echo $usuario['foto']?>">
                 <input type="hidden" name="id" value="<?php echo $usuario['id']; ?>">
+                <div class="campos">
+                    <label for="nome">Foto</label>
+                    <input type="file" name="arquivo">
+                </div>
                 <div class="campos">
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" maxlength="150" value="<?php echo $usuario['nome']?>">

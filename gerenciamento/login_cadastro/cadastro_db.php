@@ -14,7 +14,6 @@
 		$usuario = $_POST['usuario'];
 		$senha = md5($_POST['senha']);
 		$acesso = 1;
-		$foto = $_POST['foto'];
 
 		
       
@@ -36,6 +35,18 @@
 				$setSenha = "senha = '{$senha}',";
 			}
 
+			$fotoUrl =   'assets/imagens/geral/user.png';
+			if($_FILES['arquivo']['error'] == 0){
+				$foto = $_FILES['arquivo']['name'];
+				$caminho = $_FILES['arquivo']['tmp_name'];
+				$formato = explode('.', $foto)[1];
+				$formatosPemitidos = ['jpg','png'];
+				if (in_array($formato, $formatosPemitidos)) {
+					 $fotoUrl =   'assets/imagens/usuarios_gerenciamento/'.$foto;
+					 move_uploaded_file($caminho, "../../{$fotoUrl}"); 
+				}
+			}
+
 			$mensagem = '';
            if($_POST['id'] !=0){
                 $mensagem = 'alterado';
@@ -43,7 +54,7 @@
                 nome = '{$nome}',
                 usuario = '{$usuario}',
 				$setSenha
-                foto = '{$foto}'
+                foto = '{$fotoUrl}'
                 WHERE id = {$_POST['id']} ";
 
 				$usuario_obj = [  
@@ -51,7 +62,7 @@
 					'nome' => $nome,
 					'usuario' => $usuario,
 					'senha' => $senha,
-					'foto' => $foto
+					'foto' => $fotoUrl
 				];
 				session_start();
 				$_SESSION['usuario_gerenciamento'] =  $usuario_obj;
@@ -63,7 +74,7 @@
                 '{$nome}',
                 '{$usuario}',
                 '{$senha}',
-                '{$foto}',
+                '{$fotoUrl}',
                 '{$acesso}'
                 )";
            }

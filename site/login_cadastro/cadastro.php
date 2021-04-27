@@ -9,7 +9,8 @@
         'telefone'  => '',   
         'celular' => '',  
         'endereco' => '',  
-        'cpf' => ''
+        'cpf' => '',
+        'foto'  => '../../assets/imagens/geral/user.png'
     ];
 
     if(isset($_SESSION['usuario'])){
