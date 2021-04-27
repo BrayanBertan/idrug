@@ -9,7 +9,7 @@
                 'receita'   => false,   
                 'volume'    => 0,  
                 'unidade'   => '',   
-               ' estoque'   => 0,    
+                'estoque'   => 0,    
                 'foto'  => 'assets/imagens/geral/produtos.png'
             ];
             $titulo = 'Cadastrar produto';
@@ -45,11 +45,15 @@
 	</head>
 	<body>
         <div class="conteudo">
-            <form action="salvar_produto_db.php" method="post">
+            <form action="salvar_produto_db.php" method="post" enctype="multipart/form-data">
                 <h1><?php echo  $titulo?></h1>
                 <img src="../../<?php echo $produto['foto']; ?>" alt="produto">
                 <input type="hidden" name="foto" value="<?php echo $produto['foto']; ?>">
                 <input type="hidden" name="id" value="<?php echo $produto['id']; ?>">
+                <div class="campos">
+                    <label for="nome">Foto</label>
+                    <input type="file" name="arquivo">
+                </div>
                 <div class="campos">
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" maxlength="150" value="<?php echo $produto['nome']; ?>">

@@ -20,7 +20,21 @@
            $foto = $_POST['foto'];
            $receita = 0;
            if(isset($_POST['receita'])) $receita = 1;
-           
+           $fotoUrl =   'assets/imagens/geral/produtos.png';
+          //  echo '<pre>',print_r($_FILES['arquivo']),'</pre>';
+           if($_FILES['arquivo']['error'] == 0){
+                
+               $foto = $_FILES['arquivo']['name'];
+               $caminho = $_FILES['arquivo']['tmp_name'];
+               $formato = explode('.', $foto)[1];
+               $formatosPemitidos = ['jpg','png'];
+               if (in_array($formato, $formatosPemitidos)) {
+                    $fotoUrl =   'assets/imagens/produtos/'.$foto;
+                    move_uploaded_file($caminho, "../../{$fotoUrl}"); 
+               }
+           }
+         
+
            $mensagem = '';
            if($_POST['id'] !=0){
                 $mensagem = 'alterado';
@@ -33,7 +47,7 @@
                 categoria = '{$categoria}',
                 unidade = '{$unidade}',
                 receita = '{$receita}',
-                foto = '{$foto}' 
+                foto = '{$fotoUrl}' 
                 WHERE id = {$_POST['id']} ";
            }else{
                 $mensagem = 'criado';
@@ -48,7 +62,7 @@
                 {$volume},
                 {$unidade},
                 {$estoque},
-                '{$foto}'
+                '{$fotoUrl}'
                 )";
            }
 
