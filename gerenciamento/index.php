@@ -57,7 +57,7 @@
                 <div class="info">
                     <h4><b>Pedidos</b></h4>
                     <p>Pedidos da Farmacia</p>
-                    <a href="produto/produto.php"><button>Ver</button></a>
+                    <a href="pedidos/pedidos.php"><button>Ver</button></a>
                 </div>
             </div>
             <?php

@@ -11,10 +11,21 @@
         return;
     }
 
-    if(isset($_GET['entregue'])){
-        $sql = "UPDATE pedido SET status = 6 WHERE id = '$pedido'";
+    if(isset($_GET['status_pedido'])){
+        $sql = "UPDATE pedido SET status = {$_GET['status_pedido']} WHERE id = '$pedido'";
         $query = mysqli_query($conexao, $sql);
-        $status = 'Entregue';
+        $status = '';
+        switch($_GET['status_pedido']){
+            case  1 : $status = 'Em Análise';
+            break;
+            case  2 : $status = 'Em Produção';
+            break;
+            case  3 : $status = 'Enviado';
+            break;
+            case  4 : $status = 'Saiu para entrega';
+            break;
+            case  6 : $status = 'Pedido cancelado';
+        }
     }
 
 
@@ -39,7 +50,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="meus_pedidos.css">
+        <link rel="stylesheet" href="../../site/meus_pedidos/meus_pedidos.css">
         <title>Detalhes do pedido</title>
     </head>
     <body>
@@ -57,16 +68,13 @@
             </ul>
             <h3>Total:R$<?php echo $total?></h3>
             <p><?php echo $status?></p>
-            <?php
-                if($status != 'Entregue' && $status != 'Pedido cancelado'){
+            <a href="pedidos.php">Pedidos</a>       
+            <a href="detalhes_pedido.php?id=<?php echo $pedido?>&total=<?php echo $total?>&endereco=<?php echo $endereco?>&status=<?php echo $status?>&status_pedido=6"><button type="button">Cancelar Pedido</button></a>
+            <a href="detalhes_pedido.php?id=<?php echo $pedido?>&total=<?php echo $total?>&endereco=<?php echo $endereco?>&status=<?php echo $status?>&status_pedido=1"><button type="button">Voltar para Analise</button></a>
+            <a href="detalhes_pedido.php?id=<?php echo $pedido?>&total=<?php echo $total?>&endereco=<?php echo $endereco?>&status=<?php echo $status?>&status_pedido=2"><button type="button">Iniciar produção</button></a>
+            <a href="detalhes_pedido.php?id=<?php echo $pedido?>&total=<?php echo $total?>&endereco=<?php echo $endereco?>&status=<?php echo $status?>&status_pedido=3"><button type="button">Enviar</button></a>
+            <a href="detalhes_pedido.php?id=<?php echo $pedido?>&total=<?php echo $total?>&endereco=<?php echo $endereco?>&status=<?php echo $status?>&status_pedido=4"><button type="button">Saiu para entrega</button></a>
 
-              
-            ?>
-                <a href="detalhes_pedido.php?id=<?php echo $pedido?>&total=<?php echo $total?>&endereco=<?php echo $endereco?>&status=<?php echo $status?>&entregue=true"><button type="button">Confirmar recebimento</button></a>
-            <?php 
-                }
-            ?>
-            <a href="meus_pedidos.php">Meus pedidos</a>       
         </div>
     </body>
     </html>

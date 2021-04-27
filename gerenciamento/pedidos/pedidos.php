@@ -9,7 +9,7 @@
 
     $usuario =  $_SESSION['usuario'];
 
-    $sql = "SELECT a.id, a.status,a.endereco,
+    $sql = "SELECT a.id, a.status,a.endereco,c.nome,
     (CASE
         WHEN a.status = 1 THEN 'Em Análise'
         WHEN a.status = 2 THEN 'Em Produção'
@@ -19,8 +19,10 @@
         WHEN a.status = 6 THEN 'Pedido cancelado'
         ELSE 'Status desconhecido'
     END) AS status_desc,
-    (SELECT SUM(b.preco_pago_unitario * b.quantidade) FROM item AS b WHERE b.pedido = a.id)	AS total 
-    FROM pedido AS a WHERE usuario = {$usuario['id']} ORDER BY a.status";
+    (SELECT SUM(b.preco_pago_unitario * b.quantidade) FROM item AS b WHERE b.pedido = a.id)	AS total
+    FROM pedido AS a  
+    INNER JOIN usuario AS c ON c.id = a.usuario
+    ORDER BY a.status";
     //echo $sql;
     $query = mysqli_query($conexao, $sql);
     $pedidos = [];
@@ -41,18 +43,21 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="meus_pedidos.css">
-        <title>Meus Pedidos</title>
+        <link rel="stylesheet" href="../../site/meus_pedidos/meus_pedidos.css">
+        <title>Pedidos da Farmacia</title>
     </head>
     <body>
     <div class="conteudo">
         <div class="lista-pedidos">
-                <h3>Meus Pedidos</h3>
+                <h3>Pedidos da Farmacia</h3>
                 <table>
                     <thead>
                         <tr>
                             <th>
                                 Pedido
+                            </th>
+                            <th>
+                                Cliente
                             </th>
                             <th>
                                 Total
@@ -72,6 +77,7 @@
                         ?>
                             <tr>
                                 <td >#<?php echo $item['id']?></td>
+                                <td ><?php echo $item['nome']?></td>
                                 <td >R$<?php echo $item['total']?></td>
                                 <td ><?php echo $item['status'].' '.$item['status_desc']?></td>
                                 <td >
@@ -85,7 +91,7 @@
                 </table>
                 <p><?php echo $quantidade_pedidos.' pedido(s)' ?></p>
             </div>
-            <a href="../home_usuario/home_usuario.php">Minha Conta</a>
+            <a href="../">Home</a>
         </div>
     </body>
 
