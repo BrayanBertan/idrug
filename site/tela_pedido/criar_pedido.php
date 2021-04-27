@@ -18,6 +18,7 @@
             if(!$item_query) {
                 $retorno .= '   item '.$item['nome'].' não criado! MySQL erro: ' .mysqli_error($conexao);
                 $imagem = '../../assets/imagens/geral/thumb-down.png';
+                echo $sql;
             }
         }
         setcookie('carrinho', '[]', 0, '/');

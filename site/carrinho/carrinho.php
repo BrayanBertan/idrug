@@ -1,4 +1,5 @@
 <?php
+  setcookie('carrinho');
     $carrinho = [];
     if(isset($_COOKIE['carrinho'])){
         $carrinho = json_decode($_COOKIE['carrinho'],true);

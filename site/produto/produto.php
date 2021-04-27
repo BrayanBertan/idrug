@@ -34,7 +34,7 @@
         $produto = mysqli_fetch_array($query, MYSQLI_ASSOC);
 
 
-         $sql = "SELECT foto FROM modos_pagamento";
+         $sql = "SELECT foto FROM modos_pagamento WHERE status = 1";
          $query = mysqli_query($conexao, $sql);
          while($modo = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
              $modos_pagamento[] = $modo;

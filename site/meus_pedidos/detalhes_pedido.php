@@ -57,8 +57,16 @@
             </ul>
             <h3>Total:R$<?php echo $total?></h3>
             <p><?php echo $status?></p>
-            <a href="detalhes_pedido.php?id=<?php echo $pedido?>&total=<?php echo $total?>&endereco=<?php echo $endereco?>&status=<?php echo $endereco?>&entregue=true"><button type="button">Confirmar recebimento</button></a>
+            <?php
+                if($status != 'Entregue' && $status != 'Pedido cancelado'){
 
+              
+            ?>
+                <a href="detalhes_pedido.php?id=<?php echo $pedido?>&total=<?php echo $total?>&endereco=<?php echo $endereco?>&status=<?php echo $endereco?>&entregue=true"><button type="button">Confirmar recebimento</button></a>
+            <?php 
+                }
+            ?>
+            <a href="meus_pedidos.php">Meus pedidos</a>       
         </div>
     </body>
     </html>

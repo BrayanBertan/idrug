@@ -104,7 +104,7 @@ CREATE TABLE item(
 	pedido      		INT NOT NULL,
 	produto     		INT NOT NULL,
 	quantidade  		INT NOT NULL,
-	preco_pago_unitario	INT NOT NULL,
+	preco_pago_unitario	DECIMAL(5,2)  NOT NULL,
 	receita     		VARCHAR(150) NOT NULL, 
     PRIMARY KEY (id),
     FOREIGN KEY (pedido) REFERENCES pedido(id),

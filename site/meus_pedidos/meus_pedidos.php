@@ -85,6 +85,7 @@
                 </table>
                 <p><?php echo $quantidade_pedidos.' pedido(s)' ?></p>
             </div>
+            <a href="../home_usuario/home_usuario.php">Minha Conta</a>
         </div>
     </body>
 

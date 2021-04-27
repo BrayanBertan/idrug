@@ -7,6 +7,9 @@
     $query = mysqli_query($conexao, $sql);
     $logs = [];
     while($log= mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+        $updatedAtArray =  explode(' ', $log['updatedAt']);
+        $dataArray = explode('-', $updatedAtArray[0]);
+        $log['updatedAt'] = $dataArray[2].'/'.$dataArray[1].'/'.$dataArray[0].' '.$updatedAtArray[1];
         $logs[] = $log;
     }
     $quantidade_logs = mysqli_num_rows($query);
