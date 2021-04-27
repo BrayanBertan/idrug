@@ -13,7 +13,6 @@
 	  $nome = $_POST['nome'];
 	  $email = $_POST['email'];
 	  $senha = md5($_POST['senha']);
-	  $foto = $_POST['foto'];
 	  $telefone = $_POST['telefone'];
 	  $celular = $_POST['celular'];
 	  $cpf = $_POST['cpf'];
@@ -36,7 +35,18 @@
 			if(trim($_POST['senha'])!=''){
 				$setSenha = "senha = '{$senha}',";
 			}
-
+			$fotoUrl =   'assets/imagens/geral/user.png';
+			if($_FILES['arquivo']['error'] == 0){
+				$foto = $_FILES['arquivo']['name'];
+				$caminho = $_FILES['arquivo']['tmp_name'];
+				$formato = explode('.', $foto)[1];
+				$formatosPemitidos = ['jpg','png'];
+				if (in_array($formato, $formatosPemitidos)) {
+					 $fotoUrl =   'assets/imagens/usuarios/'.$foto;
+					 move_uploaded_file($caminho, "../../{$fotoUrl}"); 
+				}
+			}
+			//echo $fotoUrl;
 			$mensagem = '';
 			if($_POST['id'] !=0){
 				$mensagem = 'alterado';
@@ -44,7 +54,7 @@
 				nome = '{$nome}',
 				email = '{$email}',
 				$setSenha
-				foto = '{$foto}',
+				foto = '{$fotoUrl}',
 				telefone = '{$telefone}',
 				celular = '{$celular}',
 				cpf = '{$cpf}',
@@ -56,7 +66,7 @@
 					'nome' => $nome,
 					'email' => $email,
 					'senha' => $senha,
-					'foto' => $foto,
+					'foto' => $fotoUrl,
 					'telefone' => $telefone,
 					'celular' => $celular,
 					'cpf' => $cpf,
@@ -76,7 +86,7 @@
                 '{$telefone}',
                 '{$celular}',
                 '{$cpf}',
-                '{$foto}',
+                '{$fotoUrl}',
                 '{$endereco}'
                 
                 )";
@@ -109,7 +119,7 @@
 				}else{ 
 			?>
 			<a href="login.php"><button>Login</button></a>
-			<a href="cadastro_php"><button>Cadastro</button></a>
+			<a href="cadastro.php"><button>Cadastro</button></a>
 			<?php
 				}
 			?>

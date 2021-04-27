@@ -17,7 +17,6 @@
            $volume = $_POST['volume'];
            $categoria = $_POST['categoria'];
            $unidade = $_POST['unidade'];
-           $foto = $_POST['foto'];
            $receita = 0;
            if(isset($_POST['receita'])) $receita = 1;
            $fotoUrl =   'assets/imagens/geral/produtos.png';

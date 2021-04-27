@@ -5,7 +5,7 @@
         'nome'  => '',   
         'email' => '',  
         'senha' => '', 
-        'foto'  => '../../assets/imagens/geral/user.png',
+        'foto'  => 'assets/imagens/geral/user.png',
         'telefone'  => '',   
         'celular' => '',  
         'endereco' => '',  
@@ -27,11 +27,14 @@
 	</head>
 	<body>
         <div class="conteudo">
-            <form action="cadastro_db.php" method="post">
+            <form action="cadastro_db.php" method="post" enctype="multipart/form-data">
                 <h1>Cadastro</h1>
-                <img src="../../assets/imagens/geral/user.png" alt="minha foto">
-                <input type="hidden" name="foto" value="../../assets/imagens/geral/user.png">
+                <img src="../../<?php echo $usuario['foto']; ?>" alt="minha foto">
                 <input type="hidden" name="id" value="<?php echo $usuario['id']; ?>">
+                <div class="campos">
+                    <label for="nome">Foto</label>
+                    <input type="file" name="arquivo">
+                </div>
                 <div class="campos">
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" maxlength="150"    value="<?php echo $usuario['nome']?>">
