@@ -13,13 +13,12 @@
 
 
                     
-            $filtro = '';
+            $filtro = 'WHERE    estoque > 0';
             $pesquisa = '';
             $min = 0;
             $max = 99999;
             $categoria = 0;
             if(isset($_POST['pesquisa'])){
-                $filtro = 'WHERE';
                 $pesquisa = trim($_POST['pesquisa']);
                 if($pesquisa !== '')
                     $filtro .= " nome like '%$pesquisa%' AND";

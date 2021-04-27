@@ -19,6 +19,9 @@
                 $retorno .= '   item '.$item['nome'].' não criado! MySQL erro: ' .mysqli_error($conexao);
                 $imagem = '../../assets/imagens/geral/thumb-down.png';
                 echo $sql;
+            }else{
+                $sql = "UPDATE produto SET estoque = estoque - {$item['quantidade']} WHERE id = {$item['id']}";
+                $query = mysqli_query($conexao, $sql);
             }
         }
         setcookie('carrinho', '[]', 0, '/');
