@@ -4,6 +4,7 @@
     $total = $_GET['total'];
     $endereco = $_GET['endereco'];
     $status = $_GET['status'];
+    $status_id = $_GET['status_id'];
    
     session_start();
     if(!isset($_SESSION['usuario'])){
@@ -14,7 +15,7 @@
     if(isset($_GET['entregue'])){
         $sql = "UPDATE pedido SET status = 6 WHERE id = '$pedido'";
         $query = mysqli_query($conexao, $sql);
-        $status = 'Entregue';
+        $status_id = 5;
     }
 
 
@@ -28,6 +29,14 @@
         $itens[] = $item;
     }
     $quantidade_itens = mysqli_num_rows($query);
+
+        $statusLista = 
+        ['Em Análise',
+        'Em Produção',
+        'Enviado',
+        'Saiu para entrega',
+        'Entregue'
+        ];
 
 //    echo "<pre>";
 //         print_r($itens);
@@ -56,13 +65,26 @@
                 ?>
             </ul>
             <h3>Total:R$<?php echo $total?></h3>
-            <p><?php echo $status?></p>
+            <div class="andamento">
+                <?php
+                for($i=0;$i< 5;$i++){
+                ?>
+                    <div class=<?php echo ($i+1 == $status_id)?  'status_ativo':'status' ?>>
+                        <p><?php echo $statusLista[$i]?></p>
+                    </div>
+                   
+                <?php
+                    if($i!=4)
+                        echo " <img src='../../assets/imagens/geral/right-arrow.png' alt='andamento'>";
+                    }
+                ?>
+            </div><br><br><br>
             <?php
                 if($status != 'Entregue' && $status != 'Pedido cancelado'){
 
               
             ?>
-                <a href="detalhes_pedido.php?id=<?php echo $pedido?>&total=<?php echo $total?>&endereco=<?php echo $endereco?>&status=<?php echo $status?>&entregue=true"><button type="button">Confirmar recebimento</button></a>
+                <a href="detalhes_pedido.php?id=<?php echo $pedido?>&status_id=5&total=<?php echo $total?>&endereco=<?php echo $endereco?>&status=<?php echo $status?>&entregue=true"><button type="button">Confirmar recebimento</button></a>
             <?php 
                 }
             ?>

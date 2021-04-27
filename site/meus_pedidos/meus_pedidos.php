@@ -75,7 +75,7 @@
                                 <td >R$<?php echo $item['total']?></td>
                                 <td ><?php echo $item['status'].' '.$item['status_desc']?></td>
                                 <td >
-                                    <a href="detalhes_pedido.php?id=<?php echo $item['id']?>&total=<?php echo $item['total']?>&endereco=<?php echo $item['endereco']?>&status=<?php echo $item['status_desc']?>"><img src="../../assets/imagens/geral/pedidos.png"  alt="datalhes"></a>
+                                    <a href="detalhes_pedido.php?id=<?php echo $item['id']?>&status_id=<?php echo $item['status']?>&total=<?php echo $item['total']?>&endereco=<?php echo $item['endereco']?>&status=<?php echo $item['status_desc']?>"><img src="../../assets/imagens/geral/pedidos.png"  alt="datalhes"></a>
                                 </td>
                             </tr>
                         <?php
