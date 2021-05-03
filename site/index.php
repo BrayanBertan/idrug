@@ -35,7 +35,7 @@
             <div class="produto">
                 <img src="../<?php echo $item['foto']?>"  alt="produto">
                 <div class="info">
-                    <h4><b><?php echo $item['nome']?></b></h4>
+                    <h4><?php echo $item['nome']?></h4>
                     <p>R$<?php echo $item['preco']?></p>
                     <a href="produto/produto.php?id=<?php echo $item['id']?>"><button>Ver</button></a>
                 </div>

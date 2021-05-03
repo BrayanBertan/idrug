@@ -59,7 +59,7 @@
                     <img src="<?php echo $assetsPath.$produto['foto']?>"  alt="produto">
                 </div>
                 <div class="infos">.
-                    <h1><b><?php echo $produto['nome']?></b></h1>
+                    <h1><?php echo $produto['nome']?></h1>
                     <br>
                     <p>R$<?php echo $produto['preco']?></p>
                     <br>

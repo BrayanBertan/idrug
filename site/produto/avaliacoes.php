@@ -1,4 +1,4 @@
-            <h2><b> Avaliações Nota(<?php echo round($produto['nota'],1)?>) </b></h2><br><br>
+            <h2>Avaliações Nota(<?php echo round($produto['nota'],1)?>) </h2><br><br>
             <br>
             <div class="avaliacoes">
                 <form action="avaliacao_db.php" method="post">
