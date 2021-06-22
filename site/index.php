@@ -14,6 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="estilo.css">
         <link rel="stylesheet" href=<?php echo $cssPath?>>
+        <script type="text/javascript" src="../assets/jquery-3.6.0.min.js"></script>
         <title>Home</title>
     </head>
     <body>
@@ -27,29 +28,42 @@
          }
          $quantidade_produtos = mysqli_num_rows($query);
         ?>
-        <div class="conteudo">
-            <?php
-            foreach ($produtos as $item) { 
-           
-            ?>
-            <div class="produto">
-                <img src="../<?php echo $item['foto']?>"  alt="produto">
-                <div class="info">
-                    <h4><?php echo $item['nome']?></h4>
-                    <p>R$<?php echo $item['preco']?></p>
-                    <a href="produto/produto.php?id=<?php echo $item['id']?>"><button>Ver</button></a>
-                </div>
-            </div>
-            <?php
-            }
-            if($quantidade_produtos == 0){
-                echo '<div class="div-lista-vazia">';
-                    echo '<img src="../assets/imagens/geral/lista-vazia.png"  alt="lista vazia">';
-                    echo '<h1>Oops! nenhum resultado encontrado mude os filtros para achar novos produtos</h1>';
-                echo '</div>';
-            }
-            ?>
-        </div>
+        <div class="conteudo"></div>
+        <script type="text/javascript">
+			$(document).ready(function () {
+                console.log();
+				$.ajax({
+                    url: 'produto_lista.php',
+						method: 'post',
+						data: {
+							produtos: $('#input_produtos').val(),
+                            categoria: $('#categoria').val(),
+                            pesquisa: $('#pesquisa').val(),
+                            min: $('#min').val(),
+                            max: $('#max').val()
+						}
+					}).done(function (data) {
+						$('.conteudo').html(data);
+					});
+
+                    $('#pesquisar_btn').on('click', function () {
+                        console.log('clicou')
+					$.ajax({
+                        url: 'produto_lista.php',
+						method: 'post',
+						data: {
+							produtos: $('#input_produtos').val(),
+                            categoria: $('#categoria').val(),
+                            pesquisa: $('#pesquisa').val(),
+                            min: $('#min').val(),
+                            max: $('#max').val()
+						}
+					}).done(function (data) {
+						$('.conteudo').html(data);
+					});
+				});
+			});
+		</script>
         <footer>
             IDRUG
         </footer>

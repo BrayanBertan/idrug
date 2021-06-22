@@ -18,27 +18,6 @@
             $min = 0;
             $max = 99999;
             $categoria = 0;
-            if(isset($_POST['pesquisa'])){
-                $pesquisa = trim($_POST['pesquisa']);
-                if($pesquisa !== '')
-                    $filtro .= " AND nome like '%$pesquisa%' ";
-            
-                $min = trim($_POST['min']);
-                $min = ($min !== '')?$min:0;
-
-                $max = trim($_POST['max']);
-                $max = ($max !== '')?$max:99999;
-
-                $filtro .= ' AND preco BETWEEN '.$min.' AND '.$max.'';
-
-                $categoria = trim($_POST['categoria']);
-                if($categoria == 0)
-                    $filtro .= ' AND categoria > 0';
-                else  
-                    $filtro .= ' AND categoria = '.$categoria;
-
-                //echo "SELECT id,nome,preco,foto FROM produto $filtro";
-            }
 
         
 
@@ -68,8 +47,8 @@
                <a href="<?php echo $linksPath?>carrinho/carrinho.php"><img  src="<?php echo $assetsPath?>assets/imagens/geral/carts.png" alt="meu carrinho">Meu Carrinho</a> 
             </div>
             <div class="div-filtros">
-                <form action="<?php echo $linksPath?>index.php" method="post">
-                    <input type="text" name="pesquisa" placeholder="     Pesquisa" value="<?php echo  $pesquisa?>">
+              
+                    <input type="text" name="pesquisa"  id="pesquisa" placeholder="     Pesquisa" value="<?php echo  $pesquisa?>">
                     <select name="categoria" id="categoria">
                     <option value="0" <?php if($categoria == 0) echo'selected'?>>Todas</option>
                     <?php
@@ -80,10 +59,9 @@
                         }
                         ?>
                     </select>
-                    <input class="faixa-preco" type="number" name="min" placeholder=" preço minimo" value="<?php echo  $min?>">
-                    <input class="faixa-preco" type="number" name="max" placeholder=" preço máximo" value="<?php echo  $max?>">
-                    <button type="submit"><img  src="<?php echo $assetsPath?>assets/imagens/geral/search.png" alt="procurar"></button>
-                </form>
+                    <input class="faixa-preco" type="number" name="min" id="min" placeholder=" preço minimo" value="<?php echo  $min?>">
+                    <input class="faixa-preco" type="number" name="max" id="max" placeholder=" preço máximo" value="<?php echo  $max?>">
+                    <button id="pesquisar_btn"><img  src="<?php echo $assetsPath?>assets/imagens/geral/search.png" alt="procurar"></button>
             </div>
             
         </div>

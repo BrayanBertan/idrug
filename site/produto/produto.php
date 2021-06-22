@@ -20,7 +20,6 @@
     </head>
     <body>
         <?php
-         include('../menu/menu.php');
 
          $id = $_GET['id'];
          $sql = "SELECT a.*,b.nome AS nome_categoria,c.nome AS nome_unidade,(SELECT AVG(nota) FROM avaliacao WHERE produto = $id) AS nota FROM produto AS a

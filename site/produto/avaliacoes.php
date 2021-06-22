@@ -8,7 +8,7 @@
                     <input type="text" name="comentario" id="comentario" maxlength="255">
                     <label for="nota">Nota</label>
                     <input type="number" step=".01" name="nota" id="nota">
-                    <button type="submit" <?php if(!$isLogged) echo 'disabled'?>>enviar</button>
+                    <button type="submit">enviar</button>
                 </form>
                 <?php 
                     if($quantidade_avaliacoes == 0){
