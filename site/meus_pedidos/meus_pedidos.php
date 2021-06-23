@@ -44,7 +44,7 @@
 					});
 
                     $('#pesquisa_pedidos').on('change', function () {
-                        console.log('clicou')
+                      
 					$.ajax({
                         url: 'get_pedidos.php',
 						method: 'post',

@@ -11,7 +11,8 @@
 
     $filtro_id = "";
     if(isset($_POST['pesquisa'])){
-        $filtro_id = "AND a.id = "+$_POST['pesquisa'];
+        $pesquisa = $_POST['pesquisa'];
+        $filtro_id = 'AND a.id = '.$pesquisa;
     
     }
     $usuario =  $_SESSION['usuario'];
@@ -28,8 +29,8 @@
     END) AS status_desc,
     (SELECT SUM(b.preco_pago_unitario * b.quantidade) FROM item AS b WHERE b.pedido = a.id)	AS total 
     FROM pedido AS a WHERE usuario = {$usuario['id']} $filtro_id ORDER BY a.status";
-    echo $sql;
-    return;
+    // echo $sql;
+    // return;
     $query = mysqli_query($conexao, $sql);
     $pedidos = [];
     while($pedido= mysqli_fetch_array($query, MYSQLI_ASSOC)) {
