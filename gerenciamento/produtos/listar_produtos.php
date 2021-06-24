@@ -1,22 +1,4 @@
-<?php
-	include('../../conexao.php');
 
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-        $sql = "DELETE FROM produto WHERE id= {$id}";
-        $query = mysqli_query($conexao, $sql);
-    }
-
-    
-    $sql = "SELECT id,nome,estoque,foto FROM produto";
-    $query = mysqli_query($conexao, $sql);
-    $produtos = [];
-    while($produto= mysqli_fetch_array($query, MYSQLI_ASSOC)) {
-        $produtos[] = $produto;
-    }
-    $quantidade_produtos = mysqli_num_rows($query);
-    
-?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -25,6 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="produtos.css">
+        <script type="text/javascript" src="../../assets/jquery-3.6.0.min.js"></script>
         <title>Produtos</title>
     </head>
     <body>
@@ -33,9 +16,11 @@
                 <h3>Adicionar novo produto</h3>
                 <a href="salvar_produto.php"><button>+</button></a>
             </div>
+            <label for="pesquisa_produtos">Pesquisar por nome</label>
+            <input type="text" id="pesquisa_produtos">
             <div class="lista-produtos">
                 <h3>Produtos</h3>
-                <table>
+                <table class="produtos_table">
                     <thead>
                         <tr>
                             <th>
@@ -55,27 +40,45 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php
-                          foreach($produtos as $item){
-                         
-                        ?>
-                            <tr>
-                                <td style="width: 10%"><?php echo $item['id']?></td>
-                                <td style="width: 10%"><img src="../../<?php echo $item['foto']?>"  alt="produto"></td>
-                                <td style="width: 60%"><?php echo $item['nome']?></td>
-                                <td style="width: 10%"><?php echo $item['estoque']?></td>
-                                <td style="width: 10%">
-                                    <a href="salvar_produto.php?id=<?php echo $item['id']?>"><img src="../../assets/imagens/geral/editar.png"  alt="editar"></a>
-                                    <a href="listar_produtos.php?id=<?php echo $item['id']?>"><img src="../../assets/imagens/geral/deletar.png"  alt="salvar"></a>
-                                </td>
-                            </tr>
-                        <?php
-                            }
-                        ?>
-                    </tbody>
+                    <tbody></tbody>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $.ajax({
+                                    url: 'get_produtos.php'
+                                }).done(function (data) {
+                                    $('.produtos_table tbody').append(data);
+                                });
+
+                                $('#pesquisa_produtos').on('change', function () {
+                                console.log('prods');
+                                $.ajax({
+                                    url: 'get_produtos.php',
+                                    method: 'post',
+                                    data: {
+                                        pesquisa: $('#pesquisa_produtos').val()
+                                    }
+                                }).done(function (data) {
+                                    $('.produtos_table tbody').html(data);
+                                });
+                                
+                        });
+
+                        $(document).on('click', '#deletar_btn', function () {
+                            if(confirm("Press a button!") == false)
+                                return;
+                            $.ajax({
+                                    url: 'get_produtos.php',
+                                    method: 'post',
+                                    data: {
+                                        id: $(this).closest('tr').children('td.td_id').text()
+                                    }
+                                }).done(function (data) {
+                                    $('.produtos_table tbody').html(data);
+                                });
+                        });
+                    });
+		        </script>
                 </table>
-                <p><?php echo $quantidade_produtos.' produto(s)' ?></p>
             </div>
         </div>
     </body>

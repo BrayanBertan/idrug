@@ -1,20 +1,3 @@
-<?php
-	include('../../conexao.php');
-
-    
-    $sql = "SELECT a.*, b.nome FROM log AS a
-    LEFT JOIN usuario_gerenciamento AS b ON b.id = a.updatedBy ORDER BY a.updatedAt DESC";
-    $query = mysqli_query($conexao, $sql);
-    $logs = [];
-    while($log= mysqli_fetch_array($query, MYSQLI_ASSOC)) {
-        $updatedAtArray =  explode(' ', $log['updatedAt']);
-        $dataArray = explode('-', $updatedAtArray[0]);
-        $log['updatedAt'] = $dataArray[2].'/'.$dataArray[1].'/'.$dataArray[0].' '.$updatedAtArray[1];
-        $logs[] = $log;
-    }
-    $quantidade_logs = mysqli_num_rows($query);
-    
-?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -23,13 +6,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="log.css">
+        <script type="text/javascript" src="../../assets/jquery-3.6.0.min.js"></script>
         <title>logs</title>
     </head>
     <body>
         <div class="conteudo">
             <div class="lista-logs">
+            <label for="pesquisa_logs">Pesquisar por nome</label>
+            <input type="text" id="pesquisa_logs">
                 <h3>Logs</h3>
-                <table>
+                <table class="logs_table">
                     <thead>
                         <tr>
                             <th>
@@ -50,23 +36,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                          foreach($logs as $item){
-                         
-                        ?>
-                            <tr>
-                                <td><?php echo $item['id']?></td>
-                                <td><?php echo $item['updatedAt']?></td>
-                                <td><?php echo $item['nome']?></td>
-                                <td><?php echo $item['tabela']?></td>
-                                <td><?php echo $item['tipo']?></td>
-                            </tr>
-                        <?php
-                            }
-                        ?>
                     </tbody>
+                    <script type="text/javascript">
+			$(document).ready(function () {
+				$.ajax({
+						url: 'get_logs.php'
+					}).done(function (data) {
+						$('.logs_table tbody').append(data);
+					});
+
+                    $('#pesquisa_logs').on('change', function () {
+                      
+					$.ajax({
+                        url: 'get_logs.php',
+						method: 'post',
+						data: {
+                            pesquisa: $('#pesquisa_logs').val()
+						}
+					}).done(function (data) {
+						$('.logs_table tbody').html(data);
+                    });
+					
+			});
+        });
+		</script>
                 </table>
-                <p><?php echo $quantidade_logs.' log(s)' ?></p>
             </div>
         </div>
     </body>

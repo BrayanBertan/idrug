@@ -11,6 +11,7 @@
     </head>
     <body>
     <div class="conteudo">
+    <label for="pesquisa_produtos">Pesquisar por id</label>
     <input type="text" id="pesquisa_pedidos">
         <div class="lista-pedidos">
                 <h3>Meus Pedidos</h3>
@@ -52,7 +53,7 @@
                             pesquisa: $('#pesquisa_pedidos').val()
 						}
 					}).done(function (data) {
-						$('.pedidos_table tbody').append(data);
+						$('.pedidos_table tbody').html(data);
                     });
 					
 			});

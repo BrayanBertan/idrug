@@ -67,6 +67,14 @@
 }
 
 
+.conteudo .lista-produtos table td button{
+    background-color: transparent;
+    border: none;
+}
+.conteudo .lista-produtos table td button img{
+	width: 25px;
+    height: 25px;
+}
 
 
 .conteudo form{
